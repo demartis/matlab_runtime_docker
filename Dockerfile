@@ -18,7 +18,7 @@
 #
 
 FROM debian:stretch-slim
-
+MAINTAINER Riccardo De Martis <riccardo@demartis.it>
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get -q update && \
