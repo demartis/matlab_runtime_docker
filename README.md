@@ -7,6 +7,11 @@ stand-alone MATLAB compiled applications can be executed (such as those created 
 
 See [MathWorks website](https://www.mathworks.com/products/compiler/matlab-runtime.html) for more info.
 
+### Supported tags and respective Dockerfile links
+- latest, R2019a
+- R2019a-meshlab
+
+
 ### Build
 To build you can download this repo and run build.sh or run:
 ```bash
@@ -40,3 +45,22 @@ in a single line:
 ``` 
 - Remember that if those inputs are files or other resources, those resources must also be mounted in the container 
 and the full path to them (in the container) must be provided.
+
+
+### Licenses
+
+
+```
+    MATLAB Compiler Runtime (MCR)
+    MATLAB Runtime is a collection of shared libraries and code that enables the execution of 
+    compiled and packaged MATLAB applications on systems without an installed version of MATLAB.
+    See MathWorks website: https://www.mathworks.com/products/compiler/matlab-runtime.html for more info.
+
+    MeshLab
+    MeshLab sources are distributed under the GPL 3.0 Licensing Scheme.
+    The 'MeshLab' name is a EUIPO trademark owned by CNR.
+    MeshLab Logos are distributed under Creative Commons License
+    Creative Commons Attribution-Sharealike 4.0 International License and they can be freely used inside any wikimedia project.
+
+```
+   
