@@ -34,9 +34,9 @@ RUN apt-get -q update && \
 RUN mkdir /mcr-install && \
     mkdir /opt/mcr && \
     cd /mcr-install && \
-    wget -q http://ssd.mathworks.com/supportfiles/downloads/R2019a/Release/3/deployment_files/installer/complete/glnxa64/MATLAB_Runtime_R2019a_Update_3_glnxa64.zip  && \
-    unzip -q MATLAB_Runtime_R2019a_Update_3_glnxa64.zip && \
-    rm -f MATLAB_Runtime_R2019a_Update_3_glnxa64.zip && \
+    wget -q http://ssd.mathworks.com/supportfiles/downloads/R2019a/Release/5/deployment_files/installer/complete/glnxa64/MATLAB_Runtime_R2019a_Update_5_glnxa64.zip  && \
+    unzip -q MATLAB_Runtime_R2019a_Update_5_glnxa64.zip && \
+    rm -f MATLAB_Runtime_R2019a_Update_5_glnxa64.zip && \
     ./install -destinationFolder /opt/mcr -agreeToLicense yes -mode silent && \
     cd / && \
     rm -rf mcr-install
