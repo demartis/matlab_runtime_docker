@@ -10,6 +10,7 @@ See [MathWorks website](https://www.mathworks.com/products/compiler/matlab-runti
 
 ### Supported tags and respective Dockerfile links
 - latest, R2019a
+- R2019a-u3, R2019a-u4, R2019a-u5, R2019a-u6 
 - R2019a-meshlab
 
 
