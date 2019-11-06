@@ -13,34 +13,23 @@
 #
 # See https://www.mathworks.com/products/compiler/matlab-runtime.html for more info.
 #
+#
+# MeshLab
+# the open source system for processing and editing 3D triangular meshes.
+# It provides a set of tools for editing, cleaning, healing, inspecting, rendering,
+# texturing and converting meshes.  It offers features for processing raw data produced by
+# 3D digitization tools/devices and for preparing models for 3D printing.
+#
+#
 # @author Riccardo De Martis
 # @creation 2019-nov-06
 #
 
-FROM debian:stretch-slim
+FROM demartis/matlab-runtime:R2019a-u3
 MAINTAINER Riccardo De Martis <riccardo@demartis.it>
-ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get -q update && \
     apt-get install -q -y --no-install-recommends \
-	  xorg \
-      unzip \
-      wget \
-      curl && \
+      meshlab && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
-
-# Download the MCR from MathWorks site an install with -mode silent
-RUN mkdir /mcr-install && \
-    mkdir /opt/mcr && \
-    cd /mcr-install && \
-    wget -q http://ssd.mathworks.com/supportfiles/downloads/R2019a/Release/3/deployment_files/installer/complete/glnxa64/MATLAB_Runtime_R2019a_Update_3_glnxa64.zip  && \
-    unzip -q MATLAB_Runtime_R2019a_Update_3_glnxa64.zip && \
-    rm -f MATLAB_Runtime_R2019a_Update_3_glnxa64.zip && \
-    ./install -destinationFolder /opt/mcr -agreeToLicense yes -mode silent && \
-    cd / && \
-    rm -rf mcr-install
-
-# Configure environment variables for MCR
-ENV LD_LIBRARY_PATH /opt/mcr/v96/runtime/glnxa64:/opt/mcr/v96/bin/glnxa64:/opt/mcr/v96/sys/os/glnxa64:/opt/mcr/v96/extern/bin/glnxa64
-ENV XAPPLRESDIR /etc/X11/app-defaults
