@@ -10,9 +10,15 @@ stand-alone MATLAB compiled applications can be executed (such as those created 
 See [MathWorks website](https://www.mathworks.com/products/compiler/matlab-runtime.html) for more info.
 
 ### Supported tags and respective Dockerfile links
-- latest, R2019a
-- R2019a-u3, R2019a-u4, R2019a-u5, R2019a-u6 
-- R2019a-meshlab, R2019a-u3-meshlab, R2019a-u4-meshlab, R2019a-u5-meshlab, R2019a-u6-meshlab 
+- [latest, R2019a, R2019a-u6] (https://github.com/demartis/matlab_runtime_docker/blob/master/R2019a-u6/Dockerfile)
+- R2019a-u5
+- R2019a-u4
+- R2019a-u3
+- R2019a-u6-meshlab, 2019a-meshlab
+- R2019a-u5-meshlab
+- R2019a-u4-meshlab 
+- R2019a-u3-meshlab 
+
 
 
 ### Build
