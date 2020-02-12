@@ -35,6 +35,7 @@ RUN mkdir /mcr-install && \
     mkdir /opt/mcr && \
     cd /mcr-install && \
     wget -q https://ssd.mathworks.com/supportfiles/downloads/R2019b/Release/1/deployment_files/installer/complete/glnxa64/MATLAB_Runtime_R2019b_Update_1_glnxa64.zip  && \
+    mkdir mcr-install && cd mcr-install && \
     unzip -q MATLAB_Runtime_R2019b_Update_1_glnxa64.zip && \
     rm -f MATLAB_Runtime_R2019b_Update_1_glnxa64.zip && \
     ./install -destinationFolder /opt/mcr -agreeToLicense yes -mode silent && \
@@ -42,5 +43,6 @@ RUN mkdir /mcr-install && \
     rm -rf mcr-install
 
 # Configure environment variables for MCR
-ENV LD_LIBRARY_PATH /opt/mcr/v96/runtime/glnxa64:/opt/mcr/v96/bin/glnxa64:/opt/mcr/v96/sys/os/glnxa64:/opt/mcr/v96/extern/bin/glnxa64
+ENV LD_LIBRARY_PATH /opt/mcr/v97/runtime/glnxa64:/opt/mcr/v97/bin/glnxa64:/opt/mcr/v97/sys/os/glnxa64:/opt/mcr/v97/extern/bin/glnxa64
+
 ENV XAPPLRESDIR /etc/X11/app-defaults
