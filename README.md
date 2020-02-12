@@ -1,8 +1,12 @@
 MATLAB Compiler Runtime (MCR) for linux
 =============================
 
-- Updated to release 6 (MathWorks update 6, November 2019)
-- ~~Updated to release 5 (MathWorks update 5, October 2019)~~
+- 2019b Created fist release (MathWorks update 1, November 2019)
+
+- 2019a Updated to release 6 (MathWorks update 6, November 2019)
+- 2019a Updated to release 5 (MathWorks update 5, October 2019)
+
+
 
 This Dockerfile will configure an environment into which the MATLAB Compiler Runtime will be installed and in which 
 stand-alone MATLAB compiled applications can be executed (such as those created with deploytool or mcc).
