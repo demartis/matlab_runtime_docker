@@ -1,6 +1,9 @@
 MATLAB Compiler Runtime (MCR) for linux
 =============================
 
+- 2019b Updated to release 4 (MathWorks update 10, February 2020)
+- 2019b Updated to release 3 (MathWorks update 06, January 2020)
+- 2019b Updated to release 2 (MathWorks update 13, November 2019)
 - 2019b Created fist release (MathWorks update 1, November 2019)
 
 - 2019a Updated to release 6 (MathWorks update 6, November 2019)
@@ -14,7 +17,12 @@ stand-alone MATLAB compiled applications can be executed (such as those created 
 See [MathWorks website](https://www.mathworks.com/products/compiler/matlab-runtime.html) for more info.
 
 ### Supported tags and respective Dockerfile links
-- [latest, R2019a, R2019a-u6](https://github.com/demartis/matlab_runtime_docker/blob/master/R2019a-u6/Dockerfile)
+
+- [latest, R2019b, R2019b-u4](https://github.com/demartis/matlab_runtime_docker/blob/master/R2019b-u4/Dockerfile)
+- [R2019b-u3](https://github.com/demartis/matlab_runtime_docker/blob/master/R2019b-u3/Dockerfile)
+- [R2019b-u2](https://github.com/demartis/matlab_runtime_docker/blob/master/R2019b-u2/Dockerfile)
+- [R2019b-u1](https://github.com/demartis/matlab_runtime_docker/blob/master/R2019b-u1/Dockerfile)
+- [R2019a, R2019a-u6](https://github.com/demartis/matlab_runtime_docker/blob/master/R2019a-u6/Dockerfile)
 - [R2019a-u5](https://github.com/demartis/matlab_runtime_docker/blob/master/R2019a-u5/Dockerfile)
 - [R2019a-u4](https://github.com/demartis/matlab_runtime_docker/blob/master/R2019a-u4/Dockerfile)
 - [R2019a-u3](https://github.com/demartis/matlab_runtime_docker/blob/master/R2019a-u3/Dockerfile)
@@ -28,7 +36,7 @@ See [MathWorks website](https://www.mathworks.com/products/compiler/matlab-runti
 ### Build
 To build you can download this repo and run build.sh or run:
 ```bash
-docker build --no_cache -t demartis/matlab-runtime `pwd`
+docker build --no-cache -t demartis/matlab-runtime `pwd`
 ```
 
 ### Usage
