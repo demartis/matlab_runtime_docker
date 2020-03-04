@@ -1,5 +1,5 @@
 MATLAB Compiler Runtime (MCR) for linux
-=============================
+=======================================
 
 Logs: 
 
@@ -19,7 +19,14 @@ stand-alone MATLAB compiled applications can be executed (such as those created 
 
 Respective builds including MeshLab tool are also available.
 
-See [MathWorks](https://www.mathworks.com/products/compiler/matlab-runtime.html) and [Meshlab](http://www.meshlab.net/) websites for more info.
+```
+Disclaimer:
+The code included in this project will not decompile, modify, reverse engineer, or create derivative works.
+MATLAB, MeshLab and their respective Company names are protected by Copyright Law. 
+You acknowledge that you’re using copyrighted material.
+```
+See [MathWorks](https://www.mathworks.com/products/compiler/matlab-runtime.html) and [Meshlab](http://www.meshlab.net/) websites for more info. 
+
 
 
 ## Supported tags and respective Dockerfile links
