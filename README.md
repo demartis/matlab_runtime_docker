@@ -4,6 +4,7 @@ MATLAB Compiler Runtime (MCR) for linux
 Logs: 
 
 ```
+- 2019b Updated to release 5 (MathWorks update 16th March 2020)
 - 2019a Updated to release 7 (MathWorks update 21st February 2020)
 - 2019b Updated to release 4 (MathWorks update 20th February 2020)
 - 2019b Updated to release 3 (MathWorks update 06th January 2020)
@@ -32,7 +33,8 @@ See [MathWorks](https://www.mathworks.com/products/compiler/matlab-runtime.html)
 ## Supported tags and respective Dockerfile links
 
 #### R2019b:
-- [latest, R2019b, R2019b-u4](https://github.com/demartis/matlab_runtime_docker/blob/master/R2019b-u4/Dockerfile)
+- [R2019b-u5, R2019b, latest](https://github.com/demartis/matlab_runtime_docker/blob/master/R2019b-u5/Dockerfile)
+- [R2019b-u4](https://github.com/demartis/matlab_runtime_docker/blob/master/R2019b-u4/Dockerfile)
 - [R2019b-u3](https://github.com/demartis/matlab_runtime_docker/blob/master/R2019b-u3/Dockerfile)
 - [R2019b-u2](https://github.com/demartis/matlab_runtime_docker/blob/master/R2019b-u2/Dockerfile)
 - [R2019b-u1](https://github.com/demartis/matlab_runtime_docker/blob/master/R2019b-u1/Dockerfile)
