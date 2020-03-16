@@ -61,13 +61,28 @@ See [MathWorks](https://www.mathworks.com/products/compiler/matlab-runtime.html)
 
 
 
-### Build
-To build you can download this repo and run build.sh or run:
-```bash
-docker build --no-cache -t demartis/matlab-runtime `pwd`
-```
 
-### Usage
+## Usage
+
+1.
+    1. Pull (suggested method)
+
+        ```bash
+        docker pull demartis/matlab-runtime:latest
+        
+        ```
+
+    2. Build (not suggested method)
+    
+        To build by your own the latest tag you can git clone this repo and run build.sh or run:
+        ```bash
+        docker build --no-cache --tag demartis/matlab-runtime `pwd`/latest
+        ```
+
+2. Compile your MCR executable
+
+3. Run your MCR executable in docker
+
 To run a Matlab Stand-Alone executable (MSAE) you can do the following:
 ```bash
     docker run --rm -ti \
