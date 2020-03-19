@@ -31,6 +31,8 @@ See [MathWorks](https://www.mathworks.com/products/compiler/matlab-runtime.html)
 
 
 ## Supported tags and respective Dockerfile links
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fdemartis%2Fmatlab_runtime_docker.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fdemartis%2Fmatlab_runtime_docker?ref=badge_shield)
+
 
 #### R2019b:
 - [R2019b-u5, R2019b, latest](https://github.com/demartis/matlab_runtime_docker/blob/master/R2019b-u5/Dockerfile)
@@ -128,3 +130,6 @@ and the full path to them (in the container) must be provided.
 
 ```
    
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fdemartis%2Fmatlab_runtime_docker.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fdemartis%2Fmatlab_runtime_docker?ref=badge_large)
