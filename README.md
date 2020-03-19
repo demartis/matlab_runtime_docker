@@ -1,8 +1,14 @@
 MATLAB Compiler Runtime (MCR) for linux
 =======================================
 
-Logs: 
+![Docker Automated build](https://img.shields.io/docker/cloud/automated/demartis/matlab-runtime)
+![Docker Build Status](https://img.shields.io/docker/cloud/build/demartis/matlab-runtime)
+![GitHub last commit](https://img.shields.io/github/last-commit/demartis/matlab_runtime_docker.svg)
+![GitHub repo size in bytes](https://img.shields.io/github/repo-size/demartis/matlab_runtime_docker.svg)
+![GitHub language count](https://img.shields.io/github/languages/count/demartis/matlab_runtime_docker.svg)
+![GitHub](https://img.shields.io/github/license/demartis/matlab_runtime_docker.svg)
 
+Logs: 
 ```
 - 2019b Updated to release 5 (MathWorks update 16th March 2020)
 - 2019a Updated to release 7 (MathWorks update 21st February 2020)
@@ -12,8 +18,8 @@ Logs:
 - 2019b Created fist release (MathWorks update 01st November 2019)
 - 2019a Updated to release 6 (MathWorks update 06th November 2019)
 - 2019a Updated to release 5 (MathWorks update 05th October 2019)
-
 ```
+
 
 This Dockerfile will configure an environment into which the MATLAB Compiler Runtime will be installed and in which 
 stand-alone MATLAB compiled applications can be executed (such as those created with deploytool or mcc).
