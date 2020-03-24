@@ -33,9 +33,9 @@ Respective builds including MeshLab tool are also available.
 You can simply run your MCR executable ("exe") with:
 ```bash
 docker run --rm -ti \
-    -v /your/local/path/to/exe:/mcr/exe \
-       demartis/matlab-runtime \
-       /mcr/exe [<params>]
+   -v /your/local/path/to/exe:/mcr/exe \
+   demartis/matlab-runtime \
+   /mcr/exe [<params>]
 ```
 
 
@@ -170,7 +170,6 @@ Each tag points to respective latest release
 
         ```bash
         docker pull demartis/matlab-runtime:latest
-        
         ```
 
     2. Build (not suggested method)
@@ -186,23 +185,23 @@ Each tag points to respective latest release
 
 To run a Matlab Stand-Alone executable (MSAE) you can do the following:
 ```bash
-    docker run --rm -ti \
-        -v /your/local/path/to/exe:/mcr/exe \
-        demartis/matlab-runtime \
-        /mcr/exe [<params>]
+docker run --rm -ti \
+    -v /your/local/path/to/exe:/mcr/exe \
+    demartis/matlab-runtime \
+    /mcr/exe [<params>]
 ```
 in a single line:
 ```bash
-    docker run --rm -ti -v /your/local/path/to/exe:/mcr/exe demartis/matlab-runtime /mcr/exe [<params>] 
+docker run --rm -ti -v /your/local/path/to/exe:/mcr/exe demartis/matlab-runtime /mcr/exe [<params>] 
 ```
 "exe" is your MATLAB linux compiled (MSAE) Matlab Stand-Alone executable.
 You can also mount the full path:
 
 ```bash
-    docker run --rm -ti \
-        -v /your/local/path:/mcr \
-        demartis/matlab-runtime \
-        /mcr/exe [<params>]
+docker run --rm -ti \
+    -v /your/local/path:/mcr \
+    demartis/matlab-runtime \
+    /mcr/exe [<params>]
 ```
 in a single line:
 ```bash
@@ -230,16 +229,16 @@ See [MathWorks](https://www.mathworks.com/products/compiler/matlab-runtime.html)
 
 
 ```
-    MATLAB Compiler Runtime (MCR)
-    MATLAB Runtime is a collection of shared libraries and code that enables the execution of 
-    compiled and packaged MATLAB applications on systems without an installed version of MATLAB.
-    See MathWorks website: https://www.mathworks.com/products/compiler/matlab-runtime.html for more info.
+MATLAB Compiler Runtime (MCR)
+MATLAB Runtime is a collection of shared libraries and code that enables the execution of 
+compiled and packaged MATLAB applications on systems without an installed version of MATLAB.
+See MathWorks website: https://www.mathworks.com/products/compiler/matlab-runtime.html for more info.
 
-    MeshLab
-    MeshLab sources are distributed under the GPL 3.0 Licensing Scheme.
-    The 'MeshLab' name is a EUIPO trademark owned by CNR.
-    MeshLab Logos are distributed under Creative Commons License
-    Creative Commons Attribution-Sharealike 4.0 International License and they can be freely used inside any wikimedia project.
+MeshLab
+MeshLab sources are distributed under the GPL 3.0 Licensing Scheme.
+The 'MeshLab' name is a EUIPO trademark owned by CNR.
+MeshLab Logos are distributed under Creative Commons License
+Creative Commons Attribution-Sharealike 4.0 International License and they can be freely used inside any wikimedia project.
 
 ```
    
