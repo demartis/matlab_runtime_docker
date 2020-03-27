@@ -59,7 +59,10 @@ Each tag points to respective latest release
 | `R2020a-meshlab` | `R2019b-meshlab` | `R2019a-meshlab` |
 |                  |                  |                  |
 
-
+## Links
+[GitHub](https://github.com/demartis/matlab_runtime_docker), 
+[DockerHub](https://hub.docker.com/repository/docker/demartis/matlab-runtime), 
+[Fossa](https://app.fossa.com/projects/git%2Bgithub.com%2Fdemartis%2Fmatlab_runtime_docker)
 
 ## Supported tags and respective Dockerfile links
 
