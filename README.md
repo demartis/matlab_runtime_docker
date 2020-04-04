@@ -78,7 +78,8 @@ Each tag points to respective latest release
 - [R2019b-u1](https://github.com/demartis/matlab_runtime_docker/blob/master/R2019b-u1/Dockerfile)
 
 #### R2019a:
-- [R2019a-u7, R2019a](https://github.com/demartis/matlab_runtime_docker/blob/master/R2019a-u7/Dockerfile)
+- [R2019a-u8, R2019a](https://github.com/demartis/matlab_runtime_docker/blob/master/R2019a-u8/Dockerfile)
+- [R2019a-u7](https://github.com/demartis/matlab_runtime_docker/blob/master/R2019a-u7/Dockerfile)
 - [R2019a-u6](https://github.com/demartis/matlab_runtime_docker/blob/master/R2019a-u6/Dockerfile)
 - [R2019a-u5](https://github.com/demartis/matlab_runtime_docker/blob/master/R2019a-u5/Dockerfile)
 - [R2019a-u4](https://github.com/demartis/matlab_runtime_docker/blob/master/R2019a-u4/Dockerfile)
@@ -90,7 +91,8 @@ Each tag points to respective latest release
 - [R2020a-meshlab, latest-meshlab](https://github.com/demartis/matlab_runtime_docker/blob/master/R2020a-meshlab/Dockerfile)
 
 #### R2019a + Meshlab:
-- [R2019a-u7-meshlab, R2019a-meshlab](https://github.com/demartis/matlab_runtime_docker/blob/master/R2019a-u7-meshlab/Dockerfile)
+- [R2019a-u8-meshlab, R2019a-meshlab](https://github.com/demartis/matlab_runtime_docker/blob/master/R2019a-u8-meshlab/Dockerfile)
+- [R2019a-u7-meshlab](https://github.com/demartis/matlab_runtime_docker/blob/master/R2019a-u7-meshlab/Dockerfile)
 - [R2019a-u6-meshlab](https://github.com/demartis/matlab_runtime_docker/blob/master/R2019a-u6-meshlab/Dockerfile)
 - [R2019a-u5-meshlab](https://github.com/demartis/matlab_runtime_docker/blob/master/R2019a-u5-meshlab/Dockerfile)
 - [R2019a-u4-meshlab](https://github.com/demartis/matlab_runtime_docker/blob/master/R2019a-u4-meshlab/Dockerfile)
