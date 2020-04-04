@@ -12,6 +12,7 @@ MATLAB Compiler Runtime (MCR) for linux
 Logs: 
 ```
 Changelog
+- 2019a Updated to release 8 (MathWorks update 04th April 2020)
 - 2020a Created fist release (MathWorks update 23rd March 2020)
 - 2019b Updated to release 5 (MathWorks update 16th March 2020)
 - 2019a Updated to release 7 (MathWorks update 21st February 2020)
