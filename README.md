@@ -66,6 +66,8 @@ Each tag points to respective latest release
 [Fossa](https://app.fossa.com/projects/git%2Bgithub.com%2Fdemartis%2Fmatlab_runtime_docker)
 
 ## Supported tags and respective Dockerfile links
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fdemartis%2Fmatlab_runtime_docker.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fdemartis%2Fmatlab_runtime_docker?ref=badge_shield)
+
 
 #### R2020a:
 - [R2020a, latest](https://github.com/demartis/matlab_runtime_docker/blob/master/R2020a/Dockerfile)
@@ -248,3 +250,6 @@ Creative Commons Attribution-Sharealike 4.0 International License and they can b
 
 ```
    
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fdemartis%2Fmatlab_runtime_docker.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fdemartis%2Fmatlab_runtime_docker?ref=badge_large)
