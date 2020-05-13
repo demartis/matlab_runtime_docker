@@ -9,7 +9,7 @@ MATLAB Compiler Runtime (MCR) for linux
 ![GitHub](https://img.shields.io/github/license/demartis/matlab_runtime_docker)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fdemartis%2Fmatlab_runtime_docker.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fdemartis%2Fmatlab_runtime_docker?ref=badge_shield)
 
-Logs: 
+
 ```
 Changelog
 - 2019a Updated to release 8 (MathWorks update 04th April 2020)
