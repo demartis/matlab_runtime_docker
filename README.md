@@ -69,8 +69,8 @@ Each tag points to respective latest release
 ## Supported tags and respective Dockerfile links
 
 #### R2020a:
-- [R2020a, latest](https://github.com/demartis/matlab_runtime_docker/blob/master/R2020a-u2/Dockerfile)
-- [~~R2020a-u0~~ (unmantained)](https://github.com/demartis/matlab_runtime_docker/blob/master/R2020a/Dockerfile)
+- [R2020a, R2020a-u2 latest](https://github.com/demartis/matlab_runtime_docker/blob/master/R2020a-u2/Dockerfile)
+- [R2020a-u0](https://github.com/demartis/matlab_runtime_docker/blob/master/R2020a/Dockerfile)
 
 #### R2019b:
 - [R2019b-u5, R2019b](https://github.com/demartis/matlab_runtime_docker/blob/master/R2019b-u5/Dockerfile)
@@ -90,8 +90,8 @@ Each tag points to respective latest release
 -------------------------------------
 
 #### R2020a + Meshlab:
-- [R2020a-meshlab, latest-meshlab](https://github.com/demartis/matlab_runtime_docker/blob/master/R2020a-u2-meshlab/Dockerfile)
-- [~~R2020a-u0-meshlab~~ (unmantained)](https://github.com/demartis/matlab_runtime_docker/blob/master/R2020a-meshlab/Dockerfile)
+- [R2020a-meshlab, R2020a-u2-meshlab, latest-meshlab](https://github.com/demartis/matlab_runtime_docker/blob/master/R2020a-u2-meshlab/Dockerfile)
+- [R2020a-u0-meshlab](https://github.com/demartis/matlab_runtime_docker/blob/master/R2020a-meshlab/Dockerfile)
 
 #### R2019a + Meshlab:
 - [R2019a-u8-meshlab, R2019a-meshlab](https://github.com/demartis/matlab_runtime_docker/blob/master/R2019a-u8-meshlab/Dockerfile)
