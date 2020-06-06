@@ -12,6 +12,7 @@ MATLAB Compiler Runtime (MCR) for linux
 
 ```
 Changelog
+- 2020a Updated to release 2 (MathWorks update 01st June 2020)
 - 2019a Updated to release 8 (MathWorks update 04th April 2020)
 - 2020a Created fist release (MathWorks update 23rd March 2020)
 - 2019b Updated to release 5 (MathWorks update 16th March 2020)
@@ -68,7 +69,8 @@ Each tag points to respective latest release
 ## Supported tags and respective Dockerfile links
 
 #### R2020a:
-- [R2020a, latest](https://github.com/demartis/matlab_runtime_docker/blob/master/R2020a/Dockerfile)
+- [R2020a, latest](https://github.com/demartis/matlab_runtime_docker/blob/master/R2020a-u2/Dockerfile)
+- [~~R2020a-u0~~ (unmantained)](https://github.com/demartis/matlab_runtime_docker/blob/master/R2020a/Dockerfile)
 
 #### R2019b:
 - [R2019b-u5, R2019b](https://github.com/demartis/matlab_runtime_docker/blob/master/R2019b-u5/Dockerfile)
