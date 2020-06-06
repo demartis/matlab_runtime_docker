@@ -90,7 +90,8 @@ Each tag points to respective latest release
 -------------------------------------
 
 #### R2020a + Meshlab:
-- [R2020a-meshlab, latest-meshlab](https://github.com/demartis/matlab_runtime_docker/blob/master/R2020a-meshlab/Dockerfile)
+- [R2020a-meshlab, latest-meshlab](https://github.com/demartis/matlab_runtime_docker/blob/master/R2020a-u2-meshlab/Dockerfile)
+- [~~R2020a-u0-meshlab~~ (unmantained)](https://github.com/demartis/matlab_runtime_docker/blob/master/R2020a-meshlab/Dockerfile)
 
 #### R2019a + Meshlab:
 - [R2019a-u8-meshlab, R2019a-meshlab](https://github.com/demartis/matlab_runtime_docker/blob/master/R2019a-u8-meshlab/Dockerfile)
