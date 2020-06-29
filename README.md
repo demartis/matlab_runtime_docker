@@ -12,6 +12,7 @@ MATLAB Compiler Runtime (MCR) for linux
 
 ```
 Changelog
+- 2020a Updated to release 3 (MathWorks update 28th June 2020)
 - 2020a Updated to release 2 (MathWorks update 01st June 2020)
 - 2019a Updated to release 8 (MathWorks update 04th April 2020)
 - 2020a Created fist release (MathWorks update 23rd March 2020)
@@ -69,7 +70,8 @@ Each tag points to respective latest release
 ## Supported tags and respective Dockerfile links
 
 #### R2020a:
-- [R2020a, R2020a-u2 latest](https://github.com/demartis/matlab_runtime_docker/blob/master/R2020a-u2/Dockerfile)
+- [R2020a, R2020a-u3 latest](https://github.com/demartis/matlab_runtime_docker/blob/master/R2020a-u3/Dockerfile)
+- [R2020a-u2](https://github.com/demartis/matlab_runtime_docker/blob/master/R2020a-u2/Dockerfile)
 - [R2020a-u0](https://github.com/demartis/matlab_runtime_docker/blob/master/R2020a/Dockerfile)
 
 #### R2019b:
@@ -90,7 +92,8 @@ Each tag points to respective latest release
 -------------------------------------
 
 #### R2020a + Meshlab:
-- [R2020a-meshlab, R2020a-u2-meshlab, latest-meshlab](https://github.com/demartis/matlab_runtime_docker/blob/master/R2020a-u2-meshlab/Dockerfile)
+- [R2020a-meshlab, R2020a-u3-meshlab, latest-meshlab](https://github.com/demartis/matlab_runtime_docker/blob/master/R2020a-u3-meshlab/Dockerfile)
+- [R2020a-u2-meshlab](https://github.com/demartis/matlab_runtime_docker/blob/master/R2020a-u2-meshlab/Dockerfile)
 - [R2020a-u0-meshlab](https://github.com/demartis/matlab_runtime_docker/blob/master/R2020a-meshlab/Dockerfile)
 
 #### R2019a + Meshlab:
