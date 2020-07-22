@@ -34,9 +34,9 @@ RUN apt-get -q update && \
 RUN mkdir /mcr-install && \
     mkdir /opt/mcr && \
     cd /mcr-install && \
-    wget --no-check-certificate -q https://ssd.mathworks.com/supportfiles/downloads/R2020a/Release/2/deployment_files/installer/complete/glnxa64/MATLAB_Runtime_R2020a_Update_2_glnxa64.zip && \
-    unzip -q MATLAB_Runtime_R2020a_Update_2_glnxa64.zip && \
-    rm -f MATLAB_Runtime_R2020a_Update_2_glnxa64.zip && \
+    wget --no-check-certificate -q https://ssd.mathworks.com/supportfiles/downloads/R2020a/Release/3/deployment_files/installer/complete/glnxa64/MATLAB_Runtime_R2020a_Update_3_glnxa64.zip && \
+    unzip -q MATLAB_Runtime_R2020a_Update_3_glnxa64.zip && \
+    rm -f MATLAB_Runtime_R2020a_Update_3_glnxa64.zip && \
     ./install -destinationFolder /opt/mcr -agreeToLicense yes -mode silent && \
     cd / && \
     rm -rf mcr-install
