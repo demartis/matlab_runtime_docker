@@ -33,7 +33,7 @@ stand-alone MATLAB compiled applications can be executed (such as those created 
 
 Respective builds including MeshLab tool are also available.
 
-## TD;DR: 
+## TL;DR: 
 You can simply run your MCR executable ("exe") with:
 ```bash
 docker run --rm -ti \
