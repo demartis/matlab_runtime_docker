@@ -37,9 +37,9 @@ Respective builds including MeshLab tool are also available.
 You can simply run your MCR executable ("exe") with:
 ```bash
 docker run --rm -ti \
-   -v /your/local/path/to/exe:/mcr/exe \
-   demartis/matlab-runtime \
-   /mcr/exe [<params>]
+   -v /your_project/for_redistribution_files_only:/mcr/exe/ \
+   demartis/matlab-runtime:latest \
+   /mcr/exe/your_exe [<params>]
 ```
 
 
@@ -194,36 +194,53 @@ Each tag points to respective latest release
         docker build --no-cache --tag demartis/matlab-runtime `pwd`/latest
         ```
 
-2. Compile your MCR executable. Follow the [MathWorks' compiler official reference](https://www.mathworks.com/products/compiler.html)
+2. Compile your MCR executable as Standalone Application (MATLAB Application Compiler). Follow the [MathWorks' compiler official reference](https://www.mathworks.com/products/compiler.html)
 
 3. Run your MCR executable in docker
 
 To run a Matlab Stand-Alone executable (MSAE) you can do the following:
 ```bash
 docker run --rm -ti \
-    -v /your/local/path/to/exe:/mcr/exe \
-    demartis/matlab-runtime \
-    /mcr/exe [<params>]
+   -v /your_project/for_redistribution_files_only:/mcr/exe \
+   demartis/matlab-runtime:latest \
+   /mcr/exe/your_exe [<params>]
 ```
 in a single line:
 ```bash
-docker run --rm -ti -v /your/local/path/to/exe:/mcr/exe demartis/matlab-runtime /mcr/exe [<params>] 
+docker run --rm -ti -v /your_project/for_redistribution_files_only:/mcr/exe demartis/matlab-runtime:latest /mcr/exe/your_exe [<params>] 
 ```
-"exe" is your MATLAB linux compiled (MSAE) Matlab Stand-Alone executable.
-You can also mount the full path:
+"your_exe" is your MATLAB linux compiled (MSAE) Matlab Stand-Alone executable.
 
+*Remember* that if those inputs are files or other resources, those resources must also be mounted in the container 
+and the full path to them (in the container) must be provided.  
+e.g.:
 ```bash
 docker run --rm -ti \
-    -v /your/local/path:/mcr \
-    demartis/matlab-runtime \
-    /mcr/exe [<params>]
+  -v /your_project/for_redistribution_files_only:/mcr/exe \
+  ...
+  -v /data/data_output:/mcr/output/ \
+  ...	
+  demartis/matlab-runtime:latest \
+  /mcr/exe/your_exe [<params>]
 ```
-in a single line:
+
+You can also send ENV params to your exe
 ```bash
-    docker run --rm -ti -v /your/local/path/:/mcr demartis/matlab-runtime /mcr/exe [<params>] 
-``` 
-*Remember* that if those inputs are files or other resources, those resources must also be mounted in the container 
-and the full path to them (in the container) must be provided.
+docker run --rm -ti \
+  -v /your_project/for_redistribution_files_only:/mcr/exe \
+  ...
+  --env CUSTOM_VAR1="lorem ipsum 1" \
+  --env CUSTOM_VAR2="lorem ipsum 2" \
+  ...	
+  demartis/matlab-runtime:latest \
+  /mcr/exe/your_exe [<params>]
+```
+and get them with [getenv function](https://www.mathworks.com/help/matlab/ref/getenv.html):
+```Matlab
+% MATLAB code
+var1=getenv('CUSTOM_VAR1')
+var2=getenv('CUSTOM_VAR2')
+```
 
 Please [contact me](mailto:riccardodemartis@hotmail.com) if you encounter any issue
 
