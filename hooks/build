@@ -9,7 +9,7 @@ echo "[---] DOCKER_REPO: ${DOCKER_REPO}"
 for DIR in */ ; do
   echo "${DIR}"
   DOCKERFILE_PATH="${DIR}/Dockerfile"
-  docker build -f $DOCKERFILE_PATH -t $IMAGE_NAME .
+  docker build -f $DOCKERFILE_PATH -t $DOCKERFILE_PATH .
 done
 
 echo "[***] END SCRIPT"
