@@ -1,0 +1,15 @@
+#!/bin/bash
+# hooks/build
+# https://docs.docker.com/docker-hub/builds/advanced/
+
+echo "[***] START SCRIPT"
+echo "[---] CURRENT WORKING DIRECTORY: $(pwd)"
+echo "[---] DOCKER_REPO: ${DOCKER_REPO}"
+
+for DIR in */ ; do
+  echo "${DIR}"
+  DOCKERFILE_PATH="${DIR}/Dockerfile"
+  docker build -f $DOCKERFILE_PATH -t $IMAGE_NAME .
+done
+
+echo "[***] END SCRIPT"
