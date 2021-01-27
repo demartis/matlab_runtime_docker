@@ -13,7 +13,7 @@
 #
 # See https://www.mathworks.com/products/compiler/matlab-runtime.html for more info.
 #
-# @author Riccardo De Martis
+# @author Riccardo De Martis 
 # @creation 2020-Apr-04
 #
 
@@ -23,7 +23,7 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get -q update && \
     apt-get install -q -y --no-install-recommends \
-	  xorg \
+      xorg \
       unzip \
       wget \
       curl && \
@@ -34,7 +34,7 @@ RUN apt-get -q update && \
 RUN mkdir /mcr-install && \
     mkdir /opt/mcr && \
     cd /mcr-install && \
-    wget -q http://ssd.mathworks.com/supportfiles/downloads/R2019a/Release/8/deployment_files/installer/complete/glnxa64/MATLAB_Runtime_R2019a_Update_8_glnxa64.zip  && \
+    wget --no-check-certificate -q https://ssd.mathworks.com/supportfiles/downloads/R2019a/Release/8/deployment_files/installer/complete/glnxa64/MATLAB_Runtime_R2019a_Update_8_glnxa64.zip && \
     unzip -q MATLAB_Runtime_R2019a_Update_8_glnxa64.zip && \
     rm -f MATLAB_Runtime_R2019a_Update_8_glnxa64.zip && \
     ./install -destinationFolder /opt/mcr -agreeToLicense yes -mode silent && \
@@ -43,4 +43,5 @@ RUN mkdir /mcr-install && \
 
 # Configure environment variables for MCR
 ENV LD_LIBRARY_PATH /opt/mcr/v96/runtime/glnxa64:/opt/mcr/v96/bin/glnxa64:/opt/mcr/v96/sys/os/glnxa64:/opt/mcr/v96/extern/bin/glnxa64
+
 ENV XAPPLRESDIR /etc/X11/app-defaults

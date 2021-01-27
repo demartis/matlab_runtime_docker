@@ -13,8 +13,8 @@
 #
 # See https://www.mathworks.com/products/compiler/matlab-runtime.html for more info.
 #
-# @author Riccardo De Martis
-# @creation 2020-Jan-04
+# @author Riccardo De Martis 
+# @creation 2020-Feb-20
 #
 
 FROM debian:stretch-slim
@@ -23,7 +23,7 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get -q update && \
     apt-get install -q -y --no-install-recommends \
-	  xorg \
+      xorg \
       unzip \
       wget \
       curl && \

@@ -13,7 +13,7 @@
 #
 # See https://www.mathworks.com/products/compiler/matlab-runtime.html for more info.
 #
-# @author Riccardo De Martis
+# @author Riccardo De Martis 
 # @creation 2020-Jul-22
 #
 
@@ -23,7 +23,7 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get -q update && \
     apt-get install -q -y --no-install-recommends \
-	  xorg \
+      xorg \
       unzip \
       wget \
       curl && \
@@ -43,5 +43,5 @@ RUN mkdir /mcr-install && \
 
 # Configure environment variables for MCR
 ENV LD_LIBRARY_PATH /opt/mcr/v98/runtime/glnxa64:/opt/mcr/v98/bin/glnxa64:/opt/mcr/v98/sys/os/glnxa64:/opt/mcr/v98/extern/bin/glnxa64
-                    
+
 ENV XAPPLRESDIR /etc/X11/app-defaults
