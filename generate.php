@@ -6,14 +6,20 @@
  * All Trademarks referred to are the property of their respective owners.
  */
 
+const R_2019_A = 'R2019a';
+const R_2019_B = 'R2019b';
+const R_2020_A = 'R2020a';
+
+const FILE_LATEST = 'latest';
+
 $versions = [
-    'R2019a' => ['v9.6'],
-    'R2019b' => ['v9.7'],
-    'R2020a' => ['v9.8'],
+    R_2019_A => ['v9.6'],
+    R_2019_B => ['v9.7'],
+    R_2020_A => ['v9.8'],
 ];
 
 $builds = [
-    'R2019a' => [
+    R_2019_A => [
         [3,'2019-Nov-06'],
         [4,'2019-Jul-18'],
         5,
@@ -22,7 +28,7 @@ $builds = [
         [8,'2020-Apr-04'],
         [9,'2021-Jan-27'],
     ],
-    'R2019b' => [
+    R_2019_B => [
         [1,'2020-Feb-20'],
         [2,'2020-Jan-14'],
         [3,'2020-Feb-05'],
@@ -31,7 +37,7 @@ $builds = [
         [6,'2020-Nov-16'],
         [7,'2021-Jan-05'],
     ],
-    'R2020a' => [
+    R_2020_A => [
         [0,'2020-Mar-24'],
         [2,'2020-Jun-06'],
         [3,'2020-Jun-29'],
@@ -104,6 +110,11 @@ EOF;
     return $dockerfile;
 }
 
+function folder_name($d_name, $d_updv){
+   return $d_name.'-u'.$d_updv;
+}
+
+// Generate Dockerfiles
 foreach($builds as $version=>$build){
 
     $d_vers = $versions[$version][0];
@@ -122,10 +133,24 @@ foreach($builds as $version=>$build){
 
         $dockerfile = gen_dockerfile($d_vers, $d_name, $d_date, $d_updv, $d_libv);
 
-        $folder_name = $d_name.'-u'.$d_updv;
+        $folder_name = folder_name($d_name, $d_updv);
         if (!file_exists($folder_name)) {
             mkdir($folder_name, 0777, true);
         }
         file_put_contents($folder_name.DIRECTORY_SEPARATOR.'Dockerfile', $dockerfile);
     }
+}
+
+// Link latest versions
+
+foreach($builds as $version=>$build){
+
+    $update = end($build);
+    $d_updv = is_array($update) ? $update[0] : $update;
+
+    $folder_name = folder_name($d_name, $d_updv);
+
+    unlink(FILE_LATEST);
+    symlink($folder_name, FILE_LATEST);
+
 }
