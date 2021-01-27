@@ -22,7 +22,6 @@
 #
 #
 # @author Riccardo De Martis
-# @creation 2019-nov-06
 #
 
 FROM demartis/matlab-runtime:R2019a-u6

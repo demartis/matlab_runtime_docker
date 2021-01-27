@@ -25,7 +25,7 @@
 # @creation 2020-Mar-24
 #
 
-FROM demartis/matlab-runtime:R2020a
+FROM demartis/matlab-runtime:R2020a-u0
 MAINTAINER Riccardo De Martis <riccardo@demartis.it>
 
 RUN apt-get -q update && \
