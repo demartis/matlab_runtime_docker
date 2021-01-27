@@ -208,11 +208,11 @@ foreach($builds as $version=>$build){
     $folder_name = folder_name($d_name, $d_updv);
 
     // link main versions
-    safe_link($folder_name, $version);
-    safe_link($folder_name.'-meshlab', $version.'-meshlab');
+    safe_link($folder_name.'/', $version);
+    safe_link($folder_name.'-meshlab/', $version.'-meshlab');
 }
 
 // link latest latest-meshlab
 $last_version = end(array_keys($versions));
-safe_link($last_version, FILE_LATEST);
-safe_link($last_version.'-meshlab', FILE_LATEST_M);
+safe_link($last_version.'/', FILE_LATEST);
+safe_link($last_version.'-meshlab/', FILE_LATEST_M);
