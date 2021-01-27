@@ -13,18 +13,41 @@ $versions = [
 ];
 
 $builds = [
-//    'R2019a' => range(3,9)
-//    'R2019a' => [22,[3,'2020-Nov-16'] ]
-    'R2019a' => [[3,'2019-nov-06']]
-
+    'R2019a' => [
+        [3,'2019-Nov-06'],
+        [4,'2019-Jul-18'],
+        5,
+        6,
+        [7,'2020-Feb-21'],
+        [8,'2020-Apr-04'],
+        [9,'2021-Jan-27'],
+    ],
+    'R2019b' => [
+        [1,'2020-Feb-20'],
+        [2,'2020-Jan-14'],
+        [3,'2020-Feb-05'],
+        [4,'2020-Feb-20'],
+        [5,'2020-Mar-16'],
+        [6,'2020-Nov-16'],
+        [7,'2021-Jan-05'],
+    ],
+    'R2020a' => [
+        [0,'2020-Mar-24'],
+        [2,'2020-Jun-06'],
+        [3,'2020-Jun-29'],
+        [4,'2020-Jul-22'],
+        [5,'2020-Nov-22'],
+        [6,'2021-Jan-27'],
+    ],
 ];
 
+
 /**
- * @param string $vers // v9.7
- * @param string $named_vers // R2019b
- * @param string $date // creation date: ex: 2020-Nov-16
+ * @param string $vers        // v9.7
+ * @param string $named_vers  // R2019b
+ * @param string $date        // creation date: ex: 2020-Nov-16
  * @param int    $update_vers // 6
- * @param string $ld_lib_ver // v97
+ * @param string $ld_lib_ver  // v97
  * @return string
  */
 function gen_dockerfile($vers, $named_vers, $date, $update_vers, $ld_lib_ver)
