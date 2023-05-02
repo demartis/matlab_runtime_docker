@@ -9,6 +9,7 @@
 const R_2019_A = 'R2019a';
 const R_2019_B = 'R2019b';
 const R_2020_A = 'R2020a';
+const R_2021_A = 'R2021a';
 
 const FILE_LATEST = 'latest';
 const FILE_LATEST_M = 'latest-meshlab';
@@ -17,6 +18,7 @@ $versions = [
     R_2019_A => ['v9.6'],
     R_2019_B => ['v9.7'],
     R_2020_A => ['v9.8'],
+    R_2021_A => ['v9.10'],
 ];
 
 $builds = [
@@ -45,6 +47,9 @@ $builds = [
         [4,'2020-Jul-22'],
         [5,'2020-Nov-22'],
         [6,'2021-Jan-27'],
+    ],
+    R_2021_A => [
+        8,
     ],
 ];
 
@@ -78,7 +83,7 @@ function gen_dockerfile($vers, $named_vers, $date, $update_vers, $ld_lib_ver)
 # @author Riccardo De Martis$date
 #
 
-FROM debian:stretch-slim
+FROM debian:stable-slim
 MAINTAINER Riccardo De Martis <riccardo@demartis.it>
 ENV DEBIAN_FRONTEND noninteractive
 

@@ -17,7 +17,7 @@
 # @creation 2019-Jul-18
 #
 
-FROM debian:stretch-slim
+FROM debian:stable-slim
 MAINTAINER Riccardo De Martis <riccardo@demartis.it>
 ENV DEBIAN_FRONTEND noninteractive
 
