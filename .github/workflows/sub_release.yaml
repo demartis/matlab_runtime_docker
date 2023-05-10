@@ -1,3 +1,8 @@
+# ------------------------------------------------------------------------
+# Copyright (c) 2020-2023 Riccardo De Martis. MIT License.
+# All Trademarks referred to are the property of their respective owners.
+# ------------------------------------------------------------------------
+
 name: Release
 
 on:
@@ -10,9 +15,7 @@ on:
         required: true
         type: string
 
-
 jobs:
-
   build:
     runs-on: ubuntu-latest
     continue-on-error: true

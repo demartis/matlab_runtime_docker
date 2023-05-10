@@ -21,7 +21,6 @@ env:
   DOCKERHUB_REPO: demartis/matlab-runtime
 
 jobs:
-
   Prepare:
     uses: ./.github/workflows/sub_prepare.yaml
 
