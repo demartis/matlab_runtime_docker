@@ -32,5 +32,6 @@ jobs:
     needs: [ Prepare ]
     uses: ./.github/workflows/sub_R2020a.yaml
     with:
-      DOCKERHUB_TAG: latest
-      DOCKER_CONTEXT: latest
+      DOCKERHUB_TAG: R2020a
+      DOCKER_CONTEXT: R2020a
+      is_latest: true

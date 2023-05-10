@@ -14,6 +14,10 @@ on:
       DOCKER_CONTEXT:
         required: true
         type: string
+      is_latest:
+        required: false
+        default: false
+        type: bool
 
 jobs:
   build:
@@ -25,7 +29,9 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: ./${{ inputs.DOCKER_CONTEXT }}
-          tags: ${{ env.DOCKERHUB_REPO }}:${{ inputs.DOCKERHUB_TAG }}
+          tags: |
+            ${{ env.DOCKERHUB_REPO }}:${{ inputs.DOCKERHUB_TAG }}
+            ${{ inputs.is_latest && env.DOCKERHUB_REPO':latest' || '' }}
           #          outputs: type=docker,dest=/tmp/myimage.tar
       -
         name: Inspect
