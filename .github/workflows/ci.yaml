@@ -21,12 +21,12 @@ env:
 jobs:
 
   Prepare:
-    uses: ./.github/workflows/sub_prepare.yml
+    uses: ./.github/workflows/sub_prepare.yaml
 
   Description:
     needs: [ Prepare ]
-    uses: ./.github/workflows/sub_description.yml
+    uses: ./.github/workflows/sub_description.yaml
 
   R2020a:
     needs: [ Prepare ]
-    uses: ./.github/workflows/sub_R2020a.yml
+    uses: ./.github/workflows/sub_R2020a.yaml
