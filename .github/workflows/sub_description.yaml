@@ -7,6 +7,10 @@ name: Description
 
 on:
   workflow_call:
+    inputs:
+      DOCKERHUB_REPO:
+        required: true
+        type: string
     secrets:
       DOCKERHUB_USERNAME:
         required: true
@@ -25,4 +29,4 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-          repository: ${{ env.DOCKERHUB_REPO }}
+          repository: ${{ inputs.DOCKERHUB_REPO }}
