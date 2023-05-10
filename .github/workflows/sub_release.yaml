@@ -19,13 +19,14 @@ on:
         default: false
         type: bool
 
+
 jobs:
   build:
     runs-on: ubuntu-latest
     continue-on-error: true
     steps:
       -
-        name: Build and export to Docker
+        name: Build and export to Docker ${{ inputs.DOCKERHUB_TAG }}
         uses: docker/build-push-action@v4
         with:
           context: ./${{ inputs.DOCKER_CONTEXT }}
