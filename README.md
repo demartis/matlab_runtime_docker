@@ -2,7 +2,6 @@ MATLAB Compiler Runtime (MCR) for linux
 =======================================
 
 ![Docker Automated build](https://img.shields.io/docker/cloud/automated/demartis/matlab-runtime)
-![Docker Build Status](https://img.shields.io/docker/cloud/build/demartis/matlab-runtime)
 ![GitHub last commit](https://img.shields.io/github/last-commit/demartis/matlab_runtime_docker.svg)
 ![GitHub repo size in bytes](https://img.shields.io/github/repo-size/demartis/matlab_runtime_docker.svg)
 ![GitHub language count](https://img.shields.io/github/languages/count/demartis/matlab_runtime_docker.svg)
