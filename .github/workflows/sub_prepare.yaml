@@ -12,6 +12,7 @@ on:
         required: true
       DOCKERHUB_TOKEN:
         required: true
+        
 jobs:
   build:
     runs-on: ubuntu-latest

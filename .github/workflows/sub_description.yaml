@@ -7,18 +7,16 @@ name: Description
 
 on:
   workflow_call:
-    inputs:
-      DOCKERHUB_REPO:
-        required: true
-        type: string
     secrets:
       DOCKERHUB_USERNAME:
         required: true
       DOCKERHUB_TOKEN:
         required: true
 
-jobs:
+env:
+  DOCKERHUB_REPO: demartis/matlab-runtime
 
+jobs:
   push:
     runs-on: ubuntu-latest
     continue-on-error: true
@@ -29,4 +27,4 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-          repository: ${{ inputs.DOCKERHUB_REPO }}
+          repository: ${{ env.DOCKERHUB_REPO }}

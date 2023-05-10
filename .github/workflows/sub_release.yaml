@@ -8,9 +8,6 @@ name: Release
 on:
   workflow_call:
     inputs:
-      DOCKERHUB_REPO:
-        required: true
-        type: string
       DOCKERHUB_TAG:
         required: true
         type: string
@@ -22,6 +19,8 @@ on:
         default: false
         type: boolean
 
+env:
+  DOCKERHUB_REPO: demartis/matlab-runtime
 
 jobs:
   build:
@@ -34,17 +33,17 @@ jobs:
         with:
           context: ./${{ inputs.DOCKER_CONTEXT }}
           tags: |
-            ${{ inputs.DOCKERHUB_REPO }}:${{ inputs.DOCKERHUB_TAG }}
-            ${{ inputs.is_latest && format('{0}:latest', inputs.DOCKERHUB_REPO) || '' }}
+            ${{ env.DOCKERHUB_REPO }}:${{ inputs.DOCKERHUB_TAG }}
+            ${{ inputs.is_latest && format('{0}:latest', env.DOCKERHUB_REPO) || '' }}
           #          outputs: type=docker,dest=/tmp/myimage.tar
       -
         name: Inspect
         run: |
-          docker image inspect ${{ inputs.DOCKERHUB_REPO }}:${{ inputs.DOCKERHUB_TAG }}
+          docker image inspect ${{ env.DOCKERHUB_REPO }}:${{ inputs.DOCKERHUB_TAG }}
       -
         name: Test
         run: |
-          docker run --rm ${{ inputs.DOCKERHUB_REPO }}:${{ inputs.DOCKERHUB_TAG }} echo "TODO: ADD MCR TEST"
+          docker run --rm ${{ env.DOCKERHUB_REPO }}:${{ inputs.DOCKERHUB_TAG }} echo "TODO: ADD MCR TEST"
           
 
 #      -

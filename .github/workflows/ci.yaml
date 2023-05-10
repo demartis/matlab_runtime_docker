@@ -29,14 +29,11 @@ jobs:
     needs: [ Prepare ]
     uses: ./.github/workflows/sub_description.yaml
     secrets: inherit
-    with:
-      DOCKERHUB_REPO: ${{ env.DOCKERHUB_REPO}}
 
   R2020a:
     needs: [ Prepare ]
     uses: ./.github/workflows/sub_release.yaml
     with:
-      DOCKERHUB_REPO: ${{ env.DOCKERHUB_REPO}}
       DOCKERHUB_TAG: R2020a
       DOCKER_CONTEXT: R2020a
       is_latest: true
