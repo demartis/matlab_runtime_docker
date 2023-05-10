@@ -19,7 +19,7 @@
 # @link https://github.com/demartis/matlab_runtime_docker  
 #  
 
-FROM debian:stretch-slim  
+FROM debian:buster-slim
 MAINTAINER Riccardo De Martis <riccardo@demartis.it>  
 ENV DEBIAN_FRONTEND noninteractive  
 
