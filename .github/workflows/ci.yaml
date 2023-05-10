@@ -27,10 +27,12 @@ jobs:
   Description:
     needs: [ Prepare ]
     uses: ./.github/workflows/sub_description.yaml
+    secrets: inherit
 
   R2020a:
     needs: [ Prepare ]
     uses: ./.github/workflows/sub_release.yaml
+    secrets: inherit
     with:
       DOCKERHUB_TAG: R2020a
       DOCKER_CONTEXT: R2020a
