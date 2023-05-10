@@ -9,6 +9,12 @@ MATLAB Compiler Runtime (MCR) for linux
 ![GitHub](https://img.shields.io/github/license/demartis/matlab_runtime_docker)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fdemartis%2Fmatlab_runtime_docker.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fdemartis%2Fmatlab_runtime_docker?ref=badge_shield)
 
+## About 
+Docker image to run compiled MATLAB applications or components **without installing MATLAB**.
+
+**No additional MathWorks licenses** are required. You can scale up your computational power easily and you can save large amount of money since MATLAB Compiler Runtime (MCR) doesn't require any license to run pre-compiled stand-alone routines.      
+
+
 
 ```
 Changelog
@@ -31,6 +37,7 @@ Changelog
 - 2019a Updated to release 5 (MathWorks update 05th October 2019)
 
 ```
+___
 
 This Dockerfile will configure an environment into which the MATLAB Compiler Runtime will be installed and in which 
 stand-alone MATLAB compiled applications can be executed (such as those created with deploytool or mcc).
@@ -38,7 +45,8 @@ stand-alone MATLAB compiled applications can be executed (such as those created 
 Respective builds including MeshLab tool are also available.
 
 ## TL;DR: 
-You can simply run your MCR MATLAB Standalone Application executable ("your_exe") with:
+1. Compile your MCR MATLAB Standalone Application executable ("*your_exe*") ([MATLAB](https://www.mathworks.com/products/matlab.html) + [MATLAB Compiler](https://www.mathworks.com/products/compiler.html) required)
+2. Run *your_exe* with:
 ```bash
 docker run --rm -ti \
    -v /your_project/for_redistribution_files_only:/mcr/exe/ \
