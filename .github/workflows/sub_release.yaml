@@ -1,39 +1,37 @@
-name: R2020a
+name: Release
 
-env:
-  LATEST_TAG: latest
+on:
+  workflow_call:
+    inputs:
+      DOCKERHUB_TAG:
+        required: true
+        type: string
+      DOCKER_CONTEXT:
+        required: true
+        type: string
 
 
 jobs:
 
-  
   build:
     runs-on: ubuntu-latest
-    continue-on-error: false
+    continue-on-error: true
     steps:
       -
         name: Build and export to Docker
         uses: docker/build-push-action@v4
         with:
-          context: ./latest
-          tags: ${{ env.REPO }}:${{ env.LATEST_TAG }}
+          context: ./${{ inputs.DOCKER_CONTEXT }}
+          tags: ${{ env.DOCKERHUB_REPO }}:${{ inputs.DOCKERHUB_TAG }}
           #          outputs: type=docker,dest=/tmp/myimage.tar
       -
         name: Inspect
         run: |
-          docker image inspect ${{ env.REPO }}:${{ env.LATEST_TAG }}
+          docker image inspect ${{ env.DOCKERHUB_REPO }}:${{ inputs.DOCKERHUB_TAG }}
       -
         name: Test
         run: |
-          docker run --rm ${{ env.REPO }}:${{ env.LATEST_TAG }} echo "TODO: ADD MCR TEST"
-
-      -
-        name: Update repo description
-        uses: peter-evans/dockerhub-description@v3
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-          repository: ${{ env.REPO }}
+          docker run --rm ${{ env.DOCKERHUB_REPO }}:${{ inputs.DOCKERHUB_TAG }} echo "TODO: ADD MCR TEST"
 
 #      -
 #        name: Upload artifact

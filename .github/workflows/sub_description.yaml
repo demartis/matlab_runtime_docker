@@ -1,5 +1,8 @@
 name: Description
 
+on:
+  workflow_call:
+
 jobs:
 
   build:
@@ -12,4 +15,4 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-          repository: ${{ env.REPO }}
+          repository: ${{ env.DOCKERHUB_REPO }}

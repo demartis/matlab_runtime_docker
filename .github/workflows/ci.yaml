@@ -6,17 +6,19 @@
 # This is the master workflow, taken by CI of GitHub.
 # It (only) aims at properly organizing the sub-workflows.
 
-name: ci
+name: CI
 
 on:
   push:
     branches:
       - "master"
 
-env:
-  REPO: demartis/matlab-runtime
-  LATEST_TAG: latest
+concurrency:
+  group: CI-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
 
+env:
+  DOCKERHUB_REPO: demartis/matlab-runtime
 
 jobs:
 
@@ -30,3 +32,6 @@ jobs:
   R2020a:
     needs: [ Prepare ]
     uses: ./.github/workflows/sub_R2020a.yaml
+    with:
+      DOCKERHUB_TAG: latest
+      DOCKER_CONTEXT: latest
