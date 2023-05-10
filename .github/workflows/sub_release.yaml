@@ -32,7 +32,7 @@ jobs:
           context: ./${{ inputs.DOCKER_CONTEXT }}
           tags: |
             ${{ env.DOCKERHUB_REPO }}:${{ inputs.DOCKERHUB_TAG }}
-            ${{ inputs.is_latest && env.DOCKERHUB_REPO':latest' || '' }}
+            ${{ inputs.is_latest && format('{0}:latest', env.DOCKERHUB_REPO) || '' }}
           #          outputs: type=docker,dest=/tmp/myimage.tar
       -
         name: Inspect
