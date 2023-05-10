@@ -3,7 +3,7 @@
 # All Trademarks referred to are the property of their respective owners.
 # ------------------------------------------------------------------------
 
-name: Description
+name: sub.description
 
 on:
   workflow_call:
