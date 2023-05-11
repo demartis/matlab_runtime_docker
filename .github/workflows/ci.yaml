@@ -17,23 +17,18 @@ concurrency:
   group: CI-${{ github.head_ref || github.run_id }}
   cancel-in-progress: true
 
-env:
-  DOCKERHUB_REPO: demartis/matlab-runtime
-
 jobs:
-  Prepare:
-    uses: ./.github/workflows/sub_prepare.yaml
-    secrets: inherit
-
   Description:
-    needs: [ Prepare ]
     uses: ./.github/workflows/sub_description.yaml
+    with:
+      DOCKERHUB_REPO: demartis/matlab-runtime
     secrets: inherit
 
   R2020a:
-    needs: [ Prepare ]
     uses: ./.github/workflows/sub_release.yaml
     with:
+      DOCKERHUB_REPO: demartis/matlab-runtime
       DOCKERHUB_TAG: R2020a
       DOCKER_CONTEXT: R2020a
       is_latest: true
+    secrets: inherit
