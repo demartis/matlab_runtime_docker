@@ -95,14 +95,6 @@ jobs:
         run: |
           rm -rf /tmp/.buildx-cache
           mv /tmp/.buildx-cache-new /tmp/.buildx-cache
-      -
-        name: Inspect
-        run: |
-          docker image inspect ${{ inputs.DOCKERHUB_REPO }}:${{ inputs.DOCKERHUB_TAG }}
-      -
-        name: MCR Test
-        run: |
-          docker run --rm ${{ inputs.DOCKERHUB_REPO }}:${{ inputs.DOCKERHUB_TAG }} echo "TODO: ADD MCR TEST"
 
 #      -
 #        name: Upload artifact
