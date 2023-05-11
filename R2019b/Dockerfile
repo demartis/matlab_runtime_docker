@@ -15,11 +15,11 @@
 # See https://www.mathworks.com/products/compiler/matlab-runtime.html for more info.  
 #  
 # @author Riccardo De Martis
-# @creation 2021-Jan-05  
+# @creation 2023-May-10  
 # @link https://github.com/demartis/matlab_runtime_docker  
 #  
 
-FROM debian:stretch-slim  
+FROM debian:buster-slim  
 MAINTAINER Riccardo De Martis <riccardo@demartis.it>  
 ENV DEBIAN_FRONTEND noninteractive  
 
@@ -36,9 +36,9 @@ RUN apt-get -q update && \
 RUN mkdir /mcr-install && \  
     mkdir /opt/mcr && \  
     cd /mcr-install && \  
-    wget --no-check-certificate -q https://ssd.mathworks.com/supportfiles/downloads/R2019b/Release/7/deployment_files/installer/complete/glnxa64/MATLAB_Runtime_R2019b_Update_7_glnxa64.zip && \  
-    unzip -q MATLAB_Runtime_R2019b_Update_7_glnxa64.zip && \  
-    rm -f MATLAB_Runtime_R2019b_Update_7_glnxa64.zip && \  
+    wget --no-check-certificate -q https://ssd.mathworks.com/supportfiles/downloads/R2019b/Release/9/deployment_files/installer/complete/glnxa64/MATLAB_Runtime_R2019b_Update_9_glnxa64.zip && \  
+    unzip -q MATLAB_Runtime_R2019b_Update_9_glnxa64.zip && \  
+    rm -f MATLAB_Runtime_R2019b_Update_9_glnxa64.zip && \  
     ./install -destinationFolder /opt/mcr -agreeToLicense yes -mode silent && \  
     cd / && \  
     rm -rf mcr-install  
