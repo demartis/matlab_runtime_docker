@@ -28,8 +28,8 @@ jobs:
     uses: ./.github/workflows/sub_release.yaml
     with:
       DOCKERHUB_REPO: demartis/matlab-runtime
-      DOCKERHUB_TAG: ${{ github.job }}
-      DOCKER_CONTEXT: ${{ github.job }}
+      DOCKERHUB_TAG: R2019b
+      DOCKER_CONTEXT: R2019b
     secrets: inherit
 
   R2019b-meshlab:
@@ -37,16 +37,16 @@ jobs:
     uses: ./.github/workflows/sub_release.yaml
     with:
       DOCKERHUB_REPO: demartis/matlab-runtime
-      DOCKERHUB_TAG: ${{ github.job }}
-      DOCKER_CONTEXT: ${{ github.job }}
+      DOCKERHUB_TAG: R2019b-meshlab
+      DOCKER_CONTEXT: R2019b-meshlab
     secrets: inherit
 
   R2020a:
     uses: ./.github/workflows/sub_release.yaml
     with:
       DOCKERHUB_REPO: demartis/matlab-runtime
-      DOCKERHUB_TAG: ${{ github.job }}
-      DOCKER_CONTEXT: ${{ github.job }}
+      DOCKERHUB_TAG: R2020a
+      DOCKER_CONTEXT: R2020a
       is_latest: true
     secrets: inherit
 
@@ -55,7 +55,7 @@ jobs:
     uses: ./.github/workflows/sub_release.yaml
     with:
       DOCKERHUB_REPO: demartis/matlab-runtime
-      DOCKERHUB_TAG: ${{ github.job }}
-      DOCKER_CONTEXT: ${{ github.job }}
+      DOCKERHUB_TAG: R2020a-meshlab
+      DOCKER_CONTEXT: R2020a-meshlab
       is_latest_meshlab: true
     secrets: inherit
