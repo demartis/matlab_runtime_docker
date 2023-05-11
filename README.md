@@ -17,6 +17,15 @@ Docker image to run compiled MATLAB applications or components **without install
 
 ```
 Changelog
+v1.1
+- new python script generator
+- support until current R2023a
+- each release supported to latest update only (e.g. R2020a supported to latest update 8)
+- images upgraded from Debian Stretch to Buster
+- switch from Docker Hub Automated Builds to GitHub Actions
+- automated push to Docker Hub -> https://hub.docker.com/r/demartis/matlab-runtime
+
+v1.0
 - 2020a Updated to release 6 (MathWorks update 27nd January 2020)
 - 2020a Updated to release 5 (MathWorks update 22nd November 2020)
 - 2019b Updated to releases 6+7
@@ -59,24 +68,26 @@ docker run --rm -ti \
 Each tag points to respective latest release
 
 #### Standard
+ 
 
-|       tag        |       tag        |       tag        |
-|:----------------:|:----------------:|:----------------:|
-|     `latest`     |                  |                  |
-|     `R2020a`     |     `R2019b`     |     `R2019a`     |
-|                  |                  |                  |
+|   tag    |   tag    |   tag    |   tag    |   tag    |   tag    |   tag    |   tag    |    tag    |
+|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:---------:|
+| `latest` |          |          |          |          |          |          |          |           |
+| `R2023a` | `R2022b` | `R2022a` | `R2021b` | `R2021a` | `R2020b` | `R2020a` | `R2019b` | `R2019a`  | 
 
 #### With MeshLab
 
-|       tag        |       tag        |       tag        |
-|:----------------:|:----------------:|:----------------:|
-| `latest-meshlab` |                  |                  |
-| `R2020a-meshlab` | `R2019b-meshlab` | `R2019a-meshlab` |
-|                  |                  |                  |
+
+
+|        tag       |       tag        |        tag       |       tag        |        tag       |        tag       |        tag       |         tag      |        tag       |
+|:----------------:|:----------------:|:----------------:|:----------------:|:----------------:|:----------------:|:----------------:|:----------------:|:----------------:|
+| `latest-meshlab` |                  |                  |                  |                  |                  |                  |                  |                  |
+| `R2023a-meshlab` | `R2022b-meshlab` | `R2022a-meshlab` | `R2021b-meshlab` | `R2021a-meshlab` | `R2020b-meshlab` | `R2020a-meshlab` | `R2019b-meshlab` | `R2019a-meshlab` | 
+
 
 ## Links
 [GitHub](https://github.com/demartis/matlab_runtime_docker), 
-[Docker Hub](https://hub.docker.com/repository/docker/demartis/matlab-runtime), 
+[Docker Hub](https://hub.docker.com/r/demartis/matlab-runtime), 
 [Fossa](https://app.fossa.com/projects/git%2Bgithub.com%2Fdemartis%2Fmatlab_runtime_docker)
 
 
@@ -150,49 +161,29 @@ Please [contact me](mailto:riccardodemartis@hotmail.com) if you encounter any is
 
 ## Supported tags and respective Dockerfile links
 
-#### R2020a:
-- [R2020a, R2020a-u4  latest](https://github.com/demartis/matlab_runtime_docker/blob/master/R2020a/Dockerfile)
-- [R2020a-u3](https://github.com/demartis/matlab_runtime_docker/blob/master/R2020a-u3/Dockerfile)
-- [R2020a-u2](https://github.com/demartis/matlab_runtime_docker/blob/master/R2020a-u2/Dockerfile)
-- [R2020a-u0](https://github.com/demartis/matlab_runtime_docker/blob/master/R2020a/Dockerfile)
-
-#### R2019b:
-- [R2019b-u5, R2019b](https://github.com/demartis/matlab_runtime_docker/blob/master/R2019b-u5/Dockerfile)
-- [R2019b-u4](https://github.com/demartis/matlab_runtime_docker/blob/master/R2019b-u4/Dockerfile)
-- [R2019b-u3](https://github.com/demartis/matlab_runtime_docker/blob/master/R2019b-u3/Dockerfile)
-- [R2019b-u2](https://github.com/demartis/matlab_runtime_docker/blob/master/R2019b-u2/Dockerfile)
-- [R2019b-u1](https://github.com/demartis/matlab_runtime_docker/blob/master/R2019b-u1/Dockerfile)
-
-#### R2019a:
-- [R2019a-u8, R2019a](https://github.com/demartis/matlab_runtime_docker/blob/master/R2019a-u8/Dockerfile)
-- [R2019a-u7](https://github.com/demartis/matlab_runtime_docker/blob/master/R2019a-u7/Dockerfile)
-- [R2019a-u6](https://github.com/demartis/matlab_runtime_docker/blob/master/R2019a-u6/Dockerfile)
-- [R2019a-u5](https://github.com/demartis/matlab_runtime_docker/blob/master/R2019a-u5/Dockerfile)
-- [R2019a-u4](https://github.com/demartis/matlab_runtime_docker/blob/master/R2019a-u4/Dockerfile)
-- [R2019a-u3](https://github.com/demartis/matlab_runtime_docker/blob/master/R2019a-u3/Dockerfile)
+- [latest](https://github.com/demartis/matlab_runtime_docker/blob/master/latest/Dockerfile)
+- [R2023a](https://github.com/demartis/matlab_runtime_docker/blob/master/R2023a/Dockerfile)
+- [R2022b](https://github.com/demartis/matlab_runtime_docker/blob/master/R2022b/Dockerfile)
+- [R2022a](https://github.com/demartis/matlab_runtime_docker/blob/master/R2022a/Dockerfile)
+- [R2021a](https://github.com/demartis/matlab_runtime_docker/blob/master/R2021a/Dockerfile)
+- [R2021b](https://github.com/demartis/matlab_runtime_docker/blob/master/R2021b/Dockerfile)
+- [R2020b](https://github.com/demartis/matlab_runtime_docker/blob/master/R2020b/Dockerfile)
+- [R2020a](https://github.com/demartis/matlab_runtime_docker/blob/master/R2020a/Dockerfile)
+- [R2019b](https://github.com/demartis/matlab_runtime_docker/blob/master/R2019b/Dockerfile)
+- [R2019a](https://github.com/demartis/matlab_runtime_docker/blob/master/R2019a/Dockerfile)
 
 -------------------------------------
 
-#### R2020a + Meshlab:
-- [R2020a-meshlab, R2020a-u4-meshlab, latest-meshlab](https://github.com/demartis/matlab_runtime_docker/blob/master/R2020a-meshlab/Dockerfile)
-- [R2020a-u3-meshlab](https://github.com/demartis/matlab_runtime_docker/blob/master/R2020a-u3-meshlab/Dockerfile)
-- [R2020a-u2-meshlab](https://github.com/demartis/matlab_runtime_docker/blob/master/R2020a-u2-meshlab/Dockerfile)
-- [R2020a-u0-meshlab](https://github.com/demartis/matlab_runtime_docker/blob/master/R2020a-meshlab/Dockerfile)
-
-#### R2019a + Meshlab:
-- [R2019a-u8-meshlab, R2019a-meshlab](https://github.com/demartis/matlab_runtime_docker/blob/master/R2019a-u8-meshlab/Dockerfile)
-- [R2019a-u7-meshlab](https://github.com/demartis/matlab_runtime_docker/blob/master/R2019a-u7-meshlab/Dockerfile)
-- [R2019a-u6-meshlab](https://github.com/demartis/matlab_runtime_docker/blob/master/R2019a-u6-meshlab/Dockerfile)
-- [R2019a-u5-meshlab](https://github.com/demartis/matlab_runtime_docker/blob/master/R2019a-u5-meshlab/Dockerfile)
-- [R2019a-u4-meshlab](https://github.com/demartis/matlab_runtime_docker/blob/master/R2019a-u4-meshlab/Dockerfile)
-- [R2019a-u3-meshlab](https://github.com/demartis/matlab_runtime_docker/blob/master/R2019a-u3-meshlab/Dockerfile)
-
-#### R2019b + Meshlab:
-- [R2019b-u5-meshlab, R2019b-meshlab](https://github.com/demartis/matlab_runtime_docker/blob/master/R2019b-u5-meshlab/Dockerfile)
-- [R2019b-u4-meshlab](https://github.com/demartis/matlab_runtime_docker/blob/master/R2019b-u4-meshlab/Dockerfile)
-- [R2019b-u3-meshlab](https://github.com/demartis/matlab_runtime_docker/blob/master/R2019b-u3-meshlab/Dockerfile)
-- [R2019b-u2-meshlab](https://github.com/demartis/matlab_runtime_docker/blob/master/R2019b-u2-meshlab/Dockerfile)
-- [R2019b-u1-meshlab](https://github.com/demartis/matlab_runtime_docker/blob/master/R2019b-u1-meshlab/Dockerfile)
+- [latest-meshlab](https://github.com/demartis/matlab_runtime_docker/blob/master/latest-meshlab/Dockerfile)
+- [R2023a-meshlab](https://github.com/demartis/matlab_runtime_docker/blob/master/R2023a-meshlab/Dockerfile)
+- [R2022b-meshlab](https://github.com/demartis/matlab_runtime_docker/blob/master/R2022b-meshlab/Dockerfile)
+- [R2022a-meshlab](https://github.com/demartis/matlab_runtime_docker/blob/master/R2022a-meshlab/Dockerfile)
+- [R2021a-meshlab](https://github.com/demartis/matlab_runtime_docker/blob/master/R2021a-meshlab/Dockerfile)
+- [R2021b-meshlab](https://github.com/demartis/matlab_runtime_docker/blob/master/R2021b-meshlab/Dockerfile)
+- [R2020b-meshlab](https://github.com/demartis/matlab_runtime_docker/blob/master/R2020b-meshlab/Dockerfile)
+- [R2020a-meshlab](https://github.com/demartis/matlab_runtime_docker/blob/master/R2020a-meshlab/Dockerfile)
+- [R2019b-meshlab](https://github.com/demartis/matlab_runtime_docker/blob/master/R2019b-meshlab/Dockerfile)
+- [R2019a-meshlab](https://github.com/demartis/matlab_runtime_docker/blob/master/R2019a-meshlab/Dockerfile)
 
 
 ## Included MATLAB Runtime boxes
@@ -255,6 +246,14 @@ Please [contact me](mailto:riccardodemartis@hotmail.com) if you encounter any is
 - Web Apps Addin
 - WLAN Toolbox Addin
 ```
+
+
+--------------------------------------
+## Support
+
+This project is released as is, use it at you own risk. Ensure your project be compatible with the MIT License and Third Party licenses.
+
+Please use [GitHub Issues](https://github.com/demartis/matlab_runtime_docker/issues) or [contact me](mailto:riccardodemartis@hotmail.com) for any question or collaboration.
 
 
 --------------------------------------

@@ -1,5 +1,5 @@
 
-# MATLAB Compiler Runtime (MCR) v9.6 (R2019a)   
+# MATLAB Compiler Runtime (MCR) v9.10 (R2021a)   
 #   
 # This docker file will configure an environment into which the Matlab compiler
 # runtime will be installed and in which stand-alone matlab routines (such as
@@ -25,7 +25,7 @@
 # @link https://github.com/demartis/matlab_runtime_docker  
 #
 
-FROM demartis/matlab-runtime:R2019a  
+FROM demartis/matlab-runtime:R2021a  
 MAINTAINER Riccardo De Martis <riccardo@demartis.it>  
 
 RUN apt-get -q update && \

@@ -11,7 +11,8 @@
 # execution of compiled MATLAB applications or components. When used together,
 # MATLAB, MATLAB Compiler, and the MATLAB Runtime enable you to create and distribute  
 # numerical applications or software components quickly and securely.   
-
+#
+# See https://www.mathworks.com/products/compiler/matlab-runtime.html for more info. 
 #
 # MeshLab  
 # the open source system for processing and editing 3D triangular meshes. 
@@ -19,9 +20,9 @@
 # texturing and converting meshes.  It offers features for processing raw data produced by   
 # 3D digitization tools/devices and for preparing models for 3D printing.
 #
-#
 # @author Riccardo De Martis 
-# @creation 2023-May-10
+# @creation 2023-May-11
+# @link https://github.com/demartis/matlab_runtime_docker  
 #
 
 FROM demartis/matlab-runtime:R2019b  

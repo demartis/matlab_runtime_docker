@@ -3,46 +3,21 @@
 #  All Trademarks referred to are the property of their respective owners.
 
 import os
-import shutil
 
 FILE_LATEST = 'latest'
 FILE_LATEST_M = 'latest-meshlab'
 
 builds = [
-    ['R2019a', 'v9.6', 9, '2021-Jan-27'],
-    ['R2019b', 'v9.7', 7, '2021-Jan-05'],
-    ['R2020a', 'v9.8', 6, '2021-Jan-27'],
+    ['R2019a', 'v9.6',  9, '2023-May-11'],
+    ['R2019b', 'v9.7',  9, '2023-May-11'],
+    ['R2020a', 'v9.8',  8, '2023-May-11'],
+    ['R2020b', 'v9.9',  8, '2023-May-11'],
+    ['R2021a', 'v9.10', 8, '2023-May-11'],
+    ['R2021b', 'v9.11', 6, '2023-May-11'],
+    ['R2022a', 'v9.12', 6, '2023-May-11'],
+    ['R2022b', 'v9.13', 5, '2023-May-11'],
+    ['R2023a', 'v9.14', 1, '2023-May-11'],
 ]
-
-# builds = {
-#     R_2019_A: [
-#         [3, '2019-Nov-06'],
-#         [4, '2019-Jul-18'],
-#         5,
-#         6,
-#         [7, '2020-Feb-21'],
-#         [8, '2020-Apr-04'],
-#         [9, '2021-Jan-27']
-#     ],
-#     R_2019_B: [
-#         [1, '2020-Feb-20'],
-#         [2, '2020-Jan-14'],
-#         [3, '2020-Feb-05'],
-#         [4, '2020-Feb-20'],
-#         [5, '2020-Mar-16'],
-#         [6, '2020-Nov-16'],
-#         [7, '2021-Jan-05']
-#     ],
-#     R_2020_A: [
-#         [0, '2020-Mar-24'],
-#         [2, '2020-Jun-06'],
-#         [3, '2020-Jun-29'],
-#         [4, '2020-Jul-22'],
-#         [5, '2020-Nov-22'],
-#         [6, '2021-Jan-27']
-#     ]
-# }
-
 
 def gen_dockerfile(vers, named_vers, date, update_vers, ld_lib_ver):
     dockerfile = f"""
@@ -65,7 +40,7 @@ def gen_dockerfile(vers, named_vers, date, update_vers, ld_lib_ver):
 # @link https://github.com/demartis/matlab_runtime_docker  
 #  
 
-FROM debian:stretch-slim  
+FROM debian:buster-slim  
 MAINTAINER Riccardo De Martis <riccardo@demartis.it>  
 ENV DEBIAN_FRONTEND noninteractive  
 
@@ -111,7 +86,8 @@ def gen_dockerfile_meshlab(vers, named_vers, date, tag_name):
 # execution of compiled MATLAB applications or components. When used together,
 # MATLAB, MATLAB Compiler, and the MATLAB Runtime enable you to create and distribute  
 # numerical applications or software components quickly and securely.   
-
+#
+# See https://www.mathworks.com/products/compiler/matlab-runtime.html for more info. 
 #
 # MeshLab  
 # the open source system for processing and editing 3D triangular meshes. 
@@ -119,8 +95,8 @@ def gen_dockerfile_meshlab(vers, named_vers, date, tag_name):
 # texturing and converting meshes.  It offers features for processing raw data produced by   
 # 3D digitization tools/devices and for preparing models for 3D printing.
 #
-#
 # @author Riccardo De Martis {date}
+# @link https://github.com/demartis/matlab_runtime_docker  
 #
 
 FROM demartis/matlab-runtime:{tag_name}  
@@ -136,10 +112,6 @@ RUN apt-get -q update && \\
     return dockerfile
 
 
-# def folder_name(d_name, d_updv):
-#     return f"{d_name}-u{d_updv}"
-
-
 def safe_link(target, link):
     if os.path.islink(link):
         os.unlink(link)
@@ -153,8 +125,9 @@ def create_folder(folder_name):
     if not os.path.exists(folder_name):
         os.mkdir(folder_name)
 
-
+######################
 # Generate Dockerfiles
+######################
 for build in builds:
 
     d_name = build[0]
@@ -163,7 +136,6 @@ for build in builds:
 
     d_updv = build[2]
     d_date = f"\n# @creation {build[3]}"
-
 
     # create dockerfile
     dockerfile = gen_dockerfile(d_vers, d_name, d_date, d_updv, d_libv)
@@ -180,18 +152,64 @@ for build in builds:
         f.write(dockerfile)
 
 
-# # Link latest versions
-# for version, build in builds.items():
-#     update = build[-1]
-#     d_updv = update[0] if isinstance(update, list) else update
-#
-#     folder_name = folder_name(d_name, d_updv)
-#
-#     # link main versions
-#     safe_link(folder_name, version)
-#     safe_link(f"{folder_name}-meshlab", f"{version}-meshlab")
-#
 # link latest latest-meshlab
 latest_name = builds[-1][0]
 safe_link(latest_name, FILE_LATEST)
 safe_link(f"{latest_name}-meshlab", FILE_LATEST_M)
+
+############################
+# Generate GitHub CI Actions
+############################
+cb1 = '{{'
+cb2 = '}}'
+ci_action = f"""
+# ------------------------------------------------------------------------
+# Copyright (c) 2020-2023 Riccardo De Martis. MIT License.
+# All Trademarks referred to are the property of their respective owners.
+# ------------------------------------------------------------------------
+
+# This is the master workflow, taken by CI of GitHub.
+# It (only) aims at properly organizing the sub-workflows.
+
+name: CI
+
+on:
+  push:
+    branches:
+      - "master"
+
+concurrency:
+  group: CI-${cb1} github.head_ref || github.run_id {cb2}
+  cancel-in-progress: true
+
+jobs:
+  Description:
+    uses: ./.github/workflows/sub_description.yaml
+    with:
+      DOCKERHUB_REPO: demartis/matlab-runtime
+    secrets: inherit
+"""
+cr = '\n'
+latest_name = builds[-1][0]
+for build in builds:
+    d_name = build[0]
+
+    ci_action += f"""
+  {d_name}:
+    uses: ./.github/workflows/sub_release.yaml
+    secrets: inherit
+    with:
+      DOCKERHUB_REPO: demartis/matlab-runtime
+      DOCKERHUB_TAG: {d_name}
+      DOCKER_CONTEXT: {d_name}{str.format('{0}      is_latest: true{0}', cr) if latest_name == d_name else cr}
+  {d_name}-meshlab:
+    needs: [ {d_name} ]
+    uses: ./.github/workflows/sub_release.yaml
+    secrets: inherit
+    with:
+      DOCKERHUB_REPO: demartis/matlab-runtime
+      DOCKERHUB_TAG: {d_name}-meshlab
+      DOCKER_CONTEXT: {d_name}-meshlab{str.format('{0}      is_latest_meshlab: true{0}', cr) if latest_name == d_name else cr}"""
+
+with open(os.path.join('.github', 'workflows', 'ci.yaml'), 'w') as f:
+    f.write(ci_action)

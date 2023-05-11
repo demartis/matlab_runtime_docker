@@ -1,5 +1,5 @@
 
-# MATLAB Compiler Runtime (MCR) v9.7 (R2019b)  
+# MATLAB Compiler Runtime (MCR) v9.11 (R2021b)  
 #  
 # This docker file will configure an environment into which the Matlab compiler
 # runtime will be installed and in which stand-alone matlab routines (such as
@@ -36,14 +36,14 @@ RUN apt-get -q update && \
 RUN mkdir /mcr-install && \  
     mkdir /opt/mcr && \  
     cd /mcr-install && \  
-    wget --no-check-certificate -q https://ssd.mathworks.com/supportfiles/downloads/R2019b/Release/9/deployment_files/installer/complete/glnxa64/MATLAB_Runtime_R2019b_Update_9_glnxa64.zip && \  
-    unzip -q MATLAB_Runtime_R2019b_Update_9_glnxa64.zip && \  
-    rm -f MATLAB_Runtime_R2019b_Update_9_glnxa64.zip && \  
+    wget --no-check-certificate -q https://ssd.mathworks.com/supportfiles/downloads/R2021b/Release/6/deployment_files/installer/complete/glnxa64/MATLAB_Runtime_R2021b_Update_6_glnxa64.zip && \  
+    unzip -q MATLAB_Runtime_R2021b_Update_6_glnxa64.zip && \  
+    rm -f MATLAB_Runtime_R2021b_Update_6_glnxa64.zip && \  
     ./install -destinationFolder /opt/mcr -agreeToLicense yes -mode silent && \  
     cd / && \  
     rm -rf mcr-install  
 
 # Configure environment variables for MCR  
-ENV LD_LIBRARY_PATH /opt/mcr/v97/runtime/glnxa64:/opt/mcr/v97/bin/glnxa64:/opt/mcr/v97/sys/os/glnxa64:/opt/mcr/v97/extern/bin/glnxa64  
+ENV LD_LIBRARY_PATH /opt/mcr/v911/runtime/glnxa64:/opt/mcr/v911/bin/glnxa64:/opt/mcr/v911/sys/os/glnxa64:/opt/mcr/v911/extern/bin/glnxa64  
 
 ENV XAPPLRESDIR /etc/X11/app-defaults  

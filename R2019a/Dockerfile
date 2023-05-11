@@ -15,11 +15,11 @@
 # See https://www.mathworks.com/products/compiler/matlab-runtime.html for more info.  
 #  
 # @author Riccardo De Martis
-# @creation 2021-Jan-27  
+# @creation 2023-May-11  
 # @link https://github.com/demartis/matlab_runtime_docker  
 #  
 
-FROM debian:buster-slim
+FROM debian:buster-slim  
 MAINTAINER Riccardo De Martis <riccardo@demartis.it>  
 ENV DEBIAN_FRONTEND noninteractive  
 
@@ -28,7 +28,7 @@ RUN apt-get -q update && \
       xorg \  
       unzip \  
       wget \  
-      curl && \
+      curl && \  
     apt-get clean && \  
     rm -rf /var/lib/apt/lists/*  
 
