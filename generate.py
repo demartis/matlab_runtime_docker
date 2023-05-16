@@ -16,7 +16,7 @@ builds = [
     ['R2021b', 'v9.11', 6, '2023-May-11'],
     ['R2022a', 'v9.12', 6, '2023-May-11'],
     ['R2022b', 'v9.13', 5, '2023-May-11'],
-    ['R2023a', 'v9.14', 1, '2023-May-11'],
+    ['R2023a', 'v9.14', 2, '2023-May-16'],
 ]
 
 def gen_dockerfile(vers, named_vers, date, update_vers, ld_lib_ver):
