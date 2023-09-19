@@ -44,6 +44,6 @@ RUN mkdir /mcr-install && \
     rm -rf mcr-install  
 
 # Configure environment variables for MCR  
-ENV LD_LIBRARY_PATH /opt/mcr/v913/runtime/glnxa64:/opt/mcr/v913/bin/glnxa64:/opt/mcr/v913/sys/os/glnxa64:/opt/mcr/v913/extern/bin/glnxa64  
+ENV LD_LIBRARY_PATH /opt/mcr/R2022b/runtime/glnxa64:/opt/mcr/R2022b/bin/glnxa64:/opt/mcr/R2022b/sys/os/glnxa64:/opt/mcr/R2022b/extern/bin/glnxa64  
 
 ENV XAPPLRESDIR /etc/X11/app-defaults  
