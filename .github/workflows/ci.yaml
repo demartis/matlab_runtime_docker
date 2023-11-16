@@ -29,6 +29,7 @@ jobs:
     uses: ./.github/workflows/sub_release.yaml
     secrets: inherit
     with:
+      MATLAB_NAME: R2019a
       DOCKERHUB_REPO: demartis/matlab-runtime
       DOCKERHUB_TAG: R2019a
       DOCKER_CONTEXT: R2019a
@@ -38,6 +39,7 @@ jobs:
     uses: ./.github/workflows/sub_release.yaml
     secrets: inherit
     with:
+      MATLAB_NAME: R2019a
       DOCKERHUB_REPO: demartis/matlab-runtime
       DOCKERHUB_TAG: R2019a-meshlab
       DOCKER_CONTEXT: R2019a-meshlab
@@ -46,6 +48,7 @@ jobs:
     uses: ./.github/workflows/sub_release.yaml
     secrets: inherit
     with:
+      MATLAB_NAME: R2019b
       DOCKERHUB_REPO: demartis/matlab-runtime
       DOCKERHUB_TAG: R2019b
       DOCKER_CONTEXT: R2019b
@@ -55,6 +58,7 @@ jobs:
     uses: ./.github/workflows/sub_release.yaml
     secrets: inherit
     with:
+      MATLAB_NAME: R2019b
       DOCKERHUB_REPO: demartis/matlab-runtime
       DOCKERHUB_TAG: R2019b-meshlab
       DOCKER_CONTEXT: R2019b-meshlab
@@ -63,6 +67,7 @@ jobs:
     uses: ./.github/workflows/sub_release.yaml
     secrets: inherit
     with:
+      MATLAB_NAME: R2020a
       DOCKERHUB_REPO: demartis/matlab-runtime
       DOCKERHUB_TAG: R2020a
       DOCKER_CONTEXT: R2020a
@@ -72,6 +77,7 @@ jobs:
     uses: ./.github/workflows/sub_release.yaml
     secrets: inherit
     with:
+      MATLAB_NAME: R2020a
       DOCKERHUB_REPO: demartis/matlab-runtime
       DOCKERHUB_TAG: R2020a-meshlab
       DOCKER_CONTEXT: R2020a-meshlab
@@ -80,6 +86,7 @@ jobs:
     uses: ./.github/workflows/sub_release.yaml
     secrets: inherit
     with:
+      MATLAB_NAME: R2020b
       DOCKERHUB_REPO: demartis/matlab-runtime
       DOCKERHUB_TAG: R2020b
       DOCKER_CONTEXT: R2020b
@@ -89,6 +96,7 @@ jobs:
     uses: ./.github/workflows/sub_release.yaml
     secrets: inherit
     with:
+      MATLAB_NAME: R2020b
       DOCKERHUB_REPO: demartis/matlab-runtime
       DOCKERHUB_TAG: R2020b-meshlab
       DOCKER_CONTEXT: R2020b-meshlab
@@ -97,6 +105,7 @@ jobs:
     uses: ./.github/workflows/sub_release.yaml
     secrets: inherit
     with:
+      MATLAB_NAME: R2021a
       DOCKERHUB_REPO: demartis/matlab-runtime
       DOCKERHUB_TAG: R2021a
       DOCKER_CONTEXT: R2021a
@@ -106,6 +115,7 @@ jobs:
     uses: ./.github/workflows/sub_release.yaml
     secrets: inherit
     with:
+      MATLAB_NAME: R2021a
       DOCKERHUB_REPO: demartis/matlab-runtime
       DOCKERHUB_TAG: R2021a-meshlab
       DOCKER_CONTEXT: R2021a-meshlab
@@ -114,6 +124,7 @@ jobs:
     uses: ./.github/workflows/sub_release.yaml
     secrets: inherit
     with:
+      MATLAB_NAME: R2021b
       DOCKERHUB_REPO: demartis/matlab-runtime
       DOCKERHUB_TAG: R2021b
       DOCKER_CONTEXT: R2021b
@@ -123,6 +134,7 @@ jobs:
     uses: ./.github/workflows/sub_release.yaml
     secrets: inherit
     with:
+      MATLAB_NAME: R2021b
       DOCKERHUB_REPO: demartis/matlab-runtime
       DOCKERHUB_TAG: R2021b-meshlab
       DOCKER_CONTEXT: R2021b-meshlab
@@ -131,6 +143,7 @@ jobs:
     uses: ./.github/workflows/sub_release.yaml
     secrets: inherit
     with:
+      MATLAB_NAME: R2022a
       DOCKERHUB_REPO: demartis/matlab-runtime
       DOCKERHUB_TAG: R2022a
       DOCKER_CONTEXT: R2022a
@@ -140,6 +153,7 @@ jobs:
     uses: ./.github/workflows/sub_release.yaml
     secrets: inherit
     with:
+      MATLAB_NAME: R2022a
       DOCKERHUB_REPO: demartis/matlab-runtime
       DOCKERHUB_TAG: R2022a-meshlab
       DOCKER_CONTEXT: R2022a-meshlab
@@ -148,6 +162,7 @@ jobs:
     uses: ./.github/workflows/sub_release.yaml
     secrets: inherit
     with:
+      MATLAB_NAME: R2022b
       DOCKERHUB_REPO: demartis/matlab-runtime
       DOCKERHUB_TAG: R2022b
       DOCKER_CONTEXT: R2022b
@@ -157,6 +172,7 @@ jobs:
     uses: ./.github/workflows/sub_release.yaml
     secrets: inherit
     with:
+      MATLAB_NAME: R2022b
       DOCKERHUB_REPO: demartis/matlab-runtime
       DOCKERHUB_TAG: R2022b-meshlab
       DOCKER_CONTEXT: R2022b-meshlab
@@ -165,6 +181,7 @@ jobs:
     uses: ./.github/workflows/sub_release.yaml
     secrets: inherit
     with:
+      MATLAB_NAME: R2023a
       DOCKERHUB_REPO: demartis/matlab-runtime
       DOCKERHUB_TAG: R2023a
       DOCKER_CONTEXT: R2023a
@@ -174,6 +191,7 @@ jobs:
     uses: ./.github/workflows/sub_release.yaml
     secrets: inherit
     with:
+      MATLAB_NAME: R2023a
       DOCKERHUB_REPO: demartis/matlab-runtime
       DOCKERHUB_TAG: R2023a-meshlab
       DOCKER_CONTEXT: R2023a-meshlab
@@ -182,6 +200,7 @@ jobs:
     uses: ./.github/workflows/sub_release.yaml
     secrets: inherit
     with:
+      MATLAB_NAME: R2023b
       DOCKERHUB_REPO: demartis/matlab-runtime
       DOCKERHUB_TAG: R2023b
       DOCKER_CONTEXT: R2023b
@@ -192,6 +211,7 @@ jobs:
     uses: ./.github/workflows/sub_release.yaml
     secrets: inherit
     with:
+      MATLAB_NAME: R2023b
       DOCKERHUB_REPO: demartis/matlab-runtime
       DOCKERHUB_TAG: R2023b-meshlab
       DOCKER_CONTEXT: R2023b-meshlab

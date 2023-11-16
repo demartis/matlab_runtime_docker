@@ -211,25 +211,24 @@ cr = '\n'
 latest_name = builds[-1][0]
 for build in builds:
     d_name = build[0]
-
     ci_action += f"""
   {d_name}:
     uses: ./.github/workflows/sub_release.yaml
     secrets: inherit
     with:
+      MATLAB_NAME: {d_name}
       DOCKERHUB_REPO: demartis/matlab-runtime
       DOCKERHUB_TAG: {d_name}
       DOCKER_CONTEXT: {d_name}{str.format('{0}      is_latest: true{0}', cr) if latest_name == d_name else cr}
-      MATLAB_NAME: {d_name}
   {d_name}-meshlab:
     needs: [ {d_name} ]
     uses: ./.github/workflows/sub_release.yaml
     secrets: inherit
     with:
+      MATLAB_NAME: {d_name}
       DOCKERHUB_REPO: demartis/matlab-runtime
       DOCKERHUB_TAG: {d_name}-meshlab
-      DOCKER_CONTEXT: {d_name}-meshlab{str.format('{0}      is_latest_meshlab: true{0}', cr) if latest_name == d_name else cr}
-      MATLAB_NAME: {d_name}"""
+      DOCKER_CONTEXT: {d_name}-meshlab{str.format('{0}      is_latest_meshlab: true{0}', cr) if latest_name == d_name else cr}"""
 
 with open(os.path.join('.github', 'workflows', 'ci.yaml'), 'w') as f:
     f.write(ci_action)
@@ -271,19 +270,19 @@ for build in builds:
     uses: ./.github/workflows/sub_test.yaml
     secrets: inherit
     with:
+      MATLAB_NAME: {d_name}
       DOCKERHUB_REPO: demartis/matlab-runtime
       DOCKERHUB_TAG: {d_name}
       DOCKER_CONTEXT: {d_name}{str.format('{0}      is_latest: true{0}', cr) if latest_name == d_name else cr}
-      MATLAB_NAME: {d_name}
   {d_name}-meshlab:
     needs: [ {d_name} ]
     uses: ./.github/workflows/sub_test.yaml
     secrets: inherit
     with:
+      MATLAB_NAME: {d_name}
       DOCKERHUB_REPO: demartis/matlab-runtime
       DOCKERHUB_TAG: {d_name}-meshlab
-      DOCKER_CONTEXT: {d_name}-meshlab{str.format('{0}      is_latest_meshlab: true{0}', cr) if latest_name == d_name else cr}
-      MATLAB_NAME: {d_name}"""
+      DOCKER_CONTEXT: {d_name}-meshlab{str.format('{0}      is_latest_meshlab: true{0}', cr) if latest_name == d_name else cr}"""
 
 with open(os.path.join('.github', 'workflows', 'ci_test.yaml'), 'w') as f:
     f.write(ci_action)
