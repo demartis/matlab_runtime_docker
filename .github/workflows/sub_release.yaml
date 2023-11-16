@@ -35,12 +35,28 @@ on:
         required: true
 
 env:
-  TEST_TAG: test_${{ inputs.DOCKERHUB_TAG }}
+  TEST_TAG: test
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      -
+        name: Free Disk Space (Ubuntu)
+        uses: jlumbroso/free-disk-space@main
+        with:
+          # this might remove tools that are actually needed,
+          # if set to "true" but frees about 6 GB
+          tool-cache: false
+
+          # all of these default to true, but feel free to set to
+          # "false" if necessary for your workflow
+          android: true
+          dotnet: true
+          haskell: true
+          large-packages: false # kept as removing them is time-consuming
+          docker-images: true
+          swap-storage: true
       -
         name: Checkout
         uses: actions/checkout@v4
@@ -92,7 +108,7 @@ jobs:
       -
         name: MCR release check [test]
         run: |
-          docker run -v ${{ github.workspace }}/test:/test --rm ${{ inputs.DOCKERHUB_REPO }}:${{ env.TEST_TAG }} bash -c "chmod +x /test/mcr_version.sh && /test/mcr_version.sh ${{ inputs.MATLAB_NAME }}" 
+          docker run -v "${{ github.workspace }}/test:/test" --rm ${{ inputs.DOCKERHUB_REPO }}:${{ env.TEST_TAG }} bash -c "/test/mcr_version.sh ${{ inputs.MATLAB_NAME }}" 
 
       -
         name: Build and push (cached) :${{ inputs.DOCKERHUB_TAG }} ${{ inputs.is_latest == true && 'and :latest' || '' }} ${{ inputs.is_latest_meshlab == true && 'and :latest-meshlab' || '' }}
@@ -119,7 +135,7 @@ jobs:
       -
         name: MCR release check
         run: |
-          docker run -v ${{ github.workspace }}/test:/test --rm ${{ inputs.DOCKERHUB_REPO }}:${{ inputs.DOCKERHUB_TAG }} bash -c "chmod +x /test/mcr_version.sh && /test/mcr_version.sh ${{ inputs.MATLAB_NAME }}"
+          docker run -v "${{ github.workspace }}/test:/test" --rm ${{ inputs.DOCKERHUB_REPO }}:${{ inputs.DOCKERHUB_TAG }} bash -c "/test/mcr_version.sh ${{ inputs.MATLAB_NAME }}"
 
 #      -
 #        name: MCR Test (TODO)

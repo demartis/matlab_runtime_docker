@@ -54,7 +54,7 @@ jobs:
           android: true
           dotnet: true
           haskell: true
-          large-packages: true
+          large-packages: false # kept as removing them is time-consuming
           docker-images: true
           swap-storage: true
       -
@@ -105,12 +105,7 @@ jobs:
 #        name: Image simple check [test]
 #        run: |
 #          docker run --rm ${{ inputs.DOCKERHUB_REPO }}:${{ env.TEST_TAG }}
-      - name: docker images
-        run: |
-          docker images
-          docker ps --all
-          docker info
-          df -h
+
       -
         name: MCR release check [test]
         run: |
