@@ -92,5 +92,5 @@ jobs:
       -
         name: MCR release check [test]
         run: |
-          docker run -v ${{ github.workspace }}/test:/test --rm ${{ inputs.DOCKERHUB_REPO }}:${{ env.TEST_TAG }} bash -c "/test/mcr_version.sh ${{ inputs.MATLAB_NAME }}" 
+          docker run -v "${{ github.workspace }}/test:/test" --rm ${{ inputs.DOCKERHUB_REPO }}:${{ env.TEST_TAG }} bash -c "/test/mcr_version.sh ${{ inputs.MATLAB_NAME }}" 
 
