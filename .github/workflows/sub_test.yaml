@@ -35,7 +35,7 @@ on:
 #        required: true
 
 env:
-  TEST_TAG: test_${{ inputs.DOCKERHUB_TAG }}
+  TEST_TAG: test
 
 jobs:
   build:
@@ -89,6 +89,12 @@ jobs:
 #        name: Image simple check [test]
 #        run: |
 #          docker run --rm ${{ inputs.DOCKERHUB_REPO }}:${{ env.TEST_TAG }}
+      - name: docker images
+        run: |
+          docker images
+          docker ps --all
+          docker info
+          df -h
       -
         name: MCR release check [test]
         run: |
