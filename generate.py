@@ -235,3 +235,56 @@ with open(os.path.join('.github', 'workflows', 'ci.yaml'), 'w') as f:
     f.write(ci_action)
 
 
+############################
+# develop + pull requests
+############################
+ci_action = f"""
+# ------------------------------------------------------------------------
+# Copyright (c) 2020-2023 Riccardo De Martis. MIT License.
+# All Trademarks referred to are the property of their respective owners.
+# ------------------------------------------------------------------------
+
+# This is the master workflow, taken by CI of GitHub.
+# It (only) aims at properly organizing the sub-workflows.
+
+name: CI-test
+
+on:
+  push:
+    branches: ["develop"]
+  pull_request:
+    branches: ["master"]
+
+concurrency:
+  group: CI-test-${cb1} github.head_ref || github.run_id {cb2}
+  cancel-in-progress: true
+
+jobs:
+"""
+cr = '\n'
+latest_name = builds[-1][0]
+for build in builds:
+    d_name = build[0]
+
+    ci_action += f"""
+  {d_name}:
+    uses: ./.github/workflows/sub_test.yaml
+    secrets: inherit
+    with:
+      DOCKERHUB_REPO: demartis/matlab-runtime
+      DOCKERHUB_TAG: {d_name}
+      DOCKER_CONTEXT: {d_name}{str.format('{0}      is_latest: true{0}', cr) if latest_name == d_name else cr}
+      MATLAB_NAME: {d_name}
+  {d_name}-meshlab:
+    needs: [ {d_name} ]
+    uses: ./.github/workflows/sub_test.yaml
+    secrets: inherit
+    with:
+      DOCKERHUB_REPO: demartis/matlab-runtime
+      DOCKERHUB_TAG: {d_name}-meshlab
+      DOCKER_CONTEXT: {d_name}-meshlab{str.format('{0}      is_latest_meshlab: true{0}', cr) if latest_name == d_name else cr}
+      MATLAB_NAME: {d_name}"""
+
+with open(os.path.join('.github', 'workflows', 'ci_test.yaml'), 'w') as f:
+    f.write(ci_action)
+

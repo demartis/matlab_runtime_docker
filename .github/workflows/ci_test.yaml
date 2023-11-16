@@ -1,0 +1,194 @@
+
+# ------------------------------------------------------------------------
+# Copyright (c) 2020-2023 Riccardo De Martis. MIT License.
+# All Trademarks referred to are the property of their respective owners.
+# ------------------------------------------------------------------------
+
+# This is the master workflow, taken by CI of GitHub.
+# It (only) aims at properly organizing the sub-workflows.
+
+name: CI-test
+
+on:
+  push:
+    branches: ["develop"]
+  pull_request:
+    branches: ["master"]
+
+concurrency:
+  group: CI-test-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+
+  R2019a:
+    uses: ./.github/workflows/sub_test.yaml
+    secrets: inherit
+    with:
+      DOCKERHUB_REPO: demartis/matlab-runtime
+      DOCKERHUB_TAG: R2019a
+      DOCKER_CONTEXT: R2019a
+
+  R2019a-meshlab:
+    needs: [ R2019a ]
+    uses: ./.github/workflows/sub_test.yaml
+    secrets: inherit
+    with:
+      DOCKERHUB_REPO: demartis/matlab-runtime
+      DOCKERHUB_TAG: R2019a-meshlab
+      DOCKER_CONTEXT: R2019a-meshlab
+
+  R2019b:
+    uses: ./.github/workflows/sub_test.yaml
+    secrets: inherit
+    with:
+      DOCKERHUB_REPO: demartis/matlab-runtime
+      DOCKERHUB_TAG: R2019b
+      DOCKER_CONTEXT: R2019b
+
+  R2019b-meshlab:
+    needs: [ R2019b ]
+    uses: ./.github/workflows/sub_test.yaml
+    secrets: inherit
+    with:
+      DOCKERHUB_REPO: demartis/matlab-runtime
+      DOCKERHUB_TAG: R2019b-meshlab
+      DOCKER_CONTEXT: R2019b-meshlab
+
+  R2020a:
+    uses: ./.github/workflows/sub_test.yaml
+    secrets: inherit
+    with:
+      DOCKERHUB_REPO: demartis/matlab-runtime
+      DOCKERHUB_TAG: R2020a
+      DOCKER_CONTEXT: R2020a
+
+  R2020a-meshlab:
+    needs: [ R2020a ]
+    uses: ./.github/workflows/sub_test.yaml
+    secrets: inherit
+    with:
+      DOCKERHUB_REPO: demartis/matlab-runtime
+      DOCKERHUB_TAG: R2020a-meshlab
+      DOCKER_CONTEXT: R2020a-meshlab
+
+  R2020b:
+    uses: ./.github/workflows/sub_test.yaml
+    secrets: inherit
+    with:
+      DOCKERHUB_REPO: demartis/matlab-runtime
+      DOCKERHUB_TAG: R2020b
+      DOCKER_CONTEXT: R2020b
+
+  R2020b-meshlab:
+    needs: [ R2020b ]
+    uses: ./.github/workflows/sub_test.yaml
+    secrets: inherit
+    with:
+      DOCKERHUB_REPO: demartis/matlab-runtime
+      DOCKERHUB_TAG: R2020b-meshlab
+      DOCKER_CONTEXT: R2020b-meshlab
+
+  R2021a:
+    uses: ./.github/workflows/sub_test.yaml
+    secrets: inherit
+    with:
+      DOCKERHUB_REPO: demartis/matlab-runtime
+      DOCKERHUB_TAG: R2021a
+      DOCKER_CONTEXT: R2021a
+
+  R2021a-meshlab:
+    needs: [ R2021a ]
+    uses: ./.github/workflows/sub_test.yaml
+    secrets: inherit
+    with:
+      DOCKERHUB_REPO: demartis/matlab-runtime
+      DOCKERHUB_TAG: R2021a-meshlab
+      DOCKER_CONTEXT: R2021a-meshlab
+
+  R2021b:
+    uses: ./.github/workflows/sub_test.yaml
+    secrets: inherit
+    with:
+      DOCKERHUB_REPO: demartis/matlab-runtime
+      DOCKERHUB_TAG: R2021b
+      DOCKER_CONTEXT: R2021b
+
+  R2021b-meshlab:
+    needs: [ R2021b ]
+    uses: ./.github/workflows/sub_test.yaml
+    secrets: inherit
+    with:
+      DOCKERHUB_REPO: demartis/matlab-runtime
+      DOCKERHUB_TAG: R2021b-meshlab
+      DOCKER_CONTEXT: R2021b-meshlab
+
+  R2022a:
+    uses: ./.github/workflows/sub_test.yaml
+    secrets: inherit
+    with:
+      DOCKERHUB_REPO: demartis/matlab-runtime
+      DOCKERHUB_TAG: R2022a
+      DOCKER_CONTEXT: R2022a
+
+  R2022a-meshlab:
+    needs: [ R2022a ]
+    uses: ./.github/workflows/sub_test.yaml
+    secrets: inherit
+    with:
+      DOCKERHUB_REPO: demartis/matlab-runtime
+      DOCKERHUB_TAG: R2022a-meshlab
+      DOCKER_CONTEXT: R2022a-meshlab
+
+  R2022b:
+    uses: ./.github/workflows/sub_test.yaml
+    secrets: inherit
+    with:
+      DOCKERHUB_REPO: demartis/matlab-runtime
+      DOCKERHUB_TAG: R2022b
+      DOCKER_CONTEXT: R2022b
+
+  R2022b-meshlab:
+    needs: [ R2022b ]
+    uses: ./.github/workflows/sub_test.yaml
+    secrets: inherit
+    with:
+      DOCKERHUB_REPO: demartis/matlab-runtime
+      DOCKERHUB_TAG: R2022b-meshlab
+      DOCKER_CONTEXT: R2022b-meshlab
+
+  R2023a:
+    uses: ./.github/workflows/sub_test.yaml
+    secrets: inherit
+    with:
+      DOCKERHUB_REPO: demartis/matlab-runtime
+      DOCKERHUB_TAG: R2023a
+      DOCKER_CONTEXT: R2023a
+
+  R2023a-meshlab:
+    needs: [ R2023a ]
+    uses: ./.github/workflows/sub_test.yaml
+    secrets: inherit
+    with:
+      DOCKERHUB_REPO: demartis/matlab-runtime
+      DOCKERHUB_TAG: R2023a-meshlab
+      DOCKER_CONTEXT: R2023a-meshlab
+
+  R2023b:
+    uses: ./.github/workflows/sub_test.yaml
+    secrets: inherit
+    with:
+      DOCKERHUB_REPO: demartis/matlab-runtime
+      DOCKERHUB_TAG: R2023b
+      DOCKER_CONTEXT: R2023b
+      is_latest: true
+
+  R2023b-meshlab:
+    needs: [ R2023b ]
+    uses: ./.github/workflows/sub_test.yaml
+    secrets: inherit
+    with:
+      DOCKERHUB_REPO: demartis/matlab-runtime
+      DOCKERHUB_TAG: R2023b-meshlab
+      DOCKER_CONTEXT: R2023b-meshlab
+      is_latest_meshlab: true
