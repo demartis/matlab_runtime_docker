@@ -17,6 +17,10 @@ Docker image to run compiled MATLAB applications or components **without install
 
 ```
 Changelog
+v1.2
+- support until current R2023b
+- updated R2023a R2022b R2022a R2021b
+
 v1.1
 - new python script generator
 - support until current R2023a
@@ -67,22 +71,19 @@ docker run --rm -ti \
 
 Each tag points to respective latest release
 
-#### Standard
- 
+#### Standard 
 
-|   tag    |   tag    |   tag    |   tag    |   tag    |   tag    |   tag    |   tag    |    tag    |
-|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:---------:|
-| `latest` |          |          |          |          |          |          |          |           |
-| `R2023a` | `R2022b` | `R2022a` | `R2021b` | `R2021a` | `R2020b` | `R2020a` | `R2019b` | `R2019a`  | 
+|   tag    |   tag    |   tag    |   tag    |   tag    |   tag    |   tag    |   tag    |   tag    |    tag    |
+|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:---------:|
+| `latest` |          |          |          |          |          |          |          |          |           |
+| `R2023b` | `R2023a` | `R2022b` | `R2022a` | `R2021b` | `R2021a` | `R2020b` | `R2020a` | `R2019b` | `R2019a`  | 
 
 #### With MeshLab
 
-
-
-|        tag       |       tag        |        tag       |       tag        |        tag       |        tag       |        tag       |         tag      |        tag       |
-|:----------------:|:----------------:|:----------------:|:----------------:|:----------------:|:----------------:|:----------------:|:----------------:|:----------------:|
-| `latest-meshlab` |                  |                  |                  |                  |                  |                  |                  |                  |
-| `R2023a-meshlab` | `R2022b-meshlab` | `R2022a-meshlab` | `R2021b-meshlab` | `R2021a-meshlab` | `R2020b-meshlab` | `R2020a-meshlab` | `R2019b-meshlab` | `R2019a-meshlab` | 
+|       tag        |       tag        |       tag        |        tag       |       tag        |        tag       |        tag       |        tag       |         tag      |        tag       |
+|:----------------:|:----------------:|:----------------:|:----------------:|:----------------:|:----------------:|:----------------:|:----------------:|:----------------:|:----------------:|
+| `latest-meshlab` |                  |                  |                  |                  |                  |                  |                  |                  |                  |
+| `R2023b-meshlab` | `R2023a-meshlab` | `R2022b-meshlab` | `R2022a-meshlab` | `R2021b-meshlab` | `R2021a-meshlab` | `R2020b-meshlab` | `R2020a-meshlab` | `R2019b-meshlab` | `R2019a-meshlab` | 
 
 
 ## Links
@@ -157,11 +158,10 @@ var1=getenv('CUSTOM_VAR1')
 var2=getenv('CUSTOM_VAR2')
 ```
 
-Please [contact me](mailto:riccardodemartis@hotmail.com) if you encounter any issue
-
 ## Supported tags and respective Dockerfile links
 
 - [latest](https://github.com/demartis/matlab_runtime_docker/blob/master/latest/Dockerfile)
+- [R2023b](https://github.com/demartis/matlab_runtime_docker/blob/master/R2023b/Dockerfile)
 - [R2023a](https://github.com/demartis/matlab_runtime_docker/blob/master/R2023a/Dockerfile)
 - [R2022b](https://github.com/demartis/matlab_runtime_docker/blob/master/R2022b/Dockerfile)
 - [R2022a](https://github.com/demartis/matlab_runtime_docker/blob/master/R2022a/Dockerfile)
@@ -175,6 +175,7 @@ Please [contact me](mailto:riccardodemartis@hotmail.com) if you encounter any is
 -------------------------------------
 
 - [latest-meshlab](https://github.com/demartis/matlab_runtime_docker/blob/master/latest-meshlab/Dockerfile)
+- [R2023b-meshlab](https://github.com/demartis/matlab_runtime_docker/blob/master/R2023b-meshlab/Dockerfile)
 - [R2023a-meshlab](https://github.com/demartis/matlab_runtime_docker/blob/master/R2023a-meshlab/Dockerfile)
 - [R2022b-meshlab](https://github.com/demartis/matlab_runtime_docker/blob/master/R2022b-meshlab/Dockerfile)
 - [R2022a-meshlab](https://github.com/demartis/matlab_runtime_docker/blob/master/R2022a-meshlab/Dockerfile)
@@ -249,11 +250,26 @@ Please [contact me](mailto:riccardodemartis@hotmail.com) if you encounter any is
 
 
 --------------------------------------
+## Developers
+
+This project is delivered with a Python generator.
+All Dockerfiles, links and GitHub actions are automatically generated with the command:
+```bash
+python generator.py
+```
+
+To add or upgrade the supported MCR versions edit the variable:
+`builds = [...]` and launch the generator.
+
+Editing actions and Dockerfiles by hands is not recommended.
+
+
+--------------------------------------
 ## Support
 
 This project is released as is, use it at you own risk. Ensure your project be compatible with the MIT License and Third Party licenses.
 
-Please use [GitHub Issues](https://github.com/demartis/matlab_runtime_docker/issues) or [contact me](mailto:riccardodemartis@hotmail.com) for any question or collaboration.
+Please use [GitHub Issues](https://github.com/demartis/matlab_runtime_docker/issues) or [contact me](mailto:riccardo@demartis.it) for any question or collaboration.
 
 
 --------------------------------------

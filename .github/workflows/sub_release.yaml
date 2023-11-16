@@ -17,6 +17,9 @@ on:
       DOCKER_CONTEXT:
         required: true
         type: string
+      MATLAB_NAME:
+        required: true
+        type: string
       is_latest:
         required: false
         default: false
@@ -32,7 +35,7 @@ on:
         required: true
 
 env:
-  TEST_TAG: test
+  TEST_TAG: test_${{ inputs.DOCKERHUB_TAG }}
 
 jobs:
   build:
@@ -40,25 +43,32 @@ jobs:
     steps:
       -
         name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       -
         name: Set up QEMU
-        uses: docker/setup-qemu-action@v2
+        uses: docker/setup-qemu-action@v3
       -
         name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
+        uses: docker/setup-buildx-action@v3
       -
         name: Login to Docker Hub
-        uses: docker/login-action@v2
+        uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
         name: Create cache folders
         run: mkdir /tmp/.buildx-cache /tmp/.buildx-cache-new
+
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ inputs.DOCKERHUB_REPO }}
+
       -
-        name: Build and push :test
-        uses: docker/build-push-action@v4
+        name: Build and push [test] :${{ env.TEST_TAG }}
+        uses: docker/build-push-action@v5
         with:
           context: ./${{ inputs.DOCKER_CONTEXT }}
           load: true
@@ -75,13 +85,18 @@ jobs:
           rm -rf /tmp/.buildx-cache
           mv /tmp/.buildx-cache-new /tmp/.buildx-cache
 
+#      -
+#        name: Image simple check [test]
+#        run: |
+#          docker run --rm ${{ inputs.DOCKERHUB_REPO }}:${{ env.TEST_TAG }}
       -
-        name: Image Simple Test
+        name: MCR release check [test]
         run: |
-          docker run --rm ${{ inputs.DOCKERHUB_REPO }}:${{ env.TEST_TAG }}
+          docker run -v ${{ github.workspace }}/test:/test --rm ${{ inputs.DOCKERHUB_REPO }}:${{ env.TEST_TAG }} bash -c "chmod +x /test/mcr_version.sh && /test/mcr_version.sh ${{ inputs.MATLAB_NAME }}" 
+
       -
-        name: Build and push :${{ inputs.DOCKERHUB_TAG }} ${{ inputs.is_latest == true && 'and :latest' || '' }} ${{ inputs.is_latest_meshlab == true && 'and :latest-meshlab' || '' }}
-        uses: docker/build-push-action@v4
+        name: Build and push (cached) :${{ inputs.DOCKERHUB_TAG }} ${{ inputs.is_latest == true && 'and :latest' || '' }} ${{ inputs.is_latest_meshlab == true && 'and :latest-meshlab' || '' }}
+        uses: docker/build-push-action@v5
         with:
           context: ./${{ inputs.DOCKER_CONTEXT }}
           push: true
@@ -102,12 +117,11 @@ jobs:
 #          mv /tmp/.buildx-cache-new /tmp/.buildx-cache
 
       -
-        name: Inspect (Temp skipped)
-        continue-on-error: true
+        name: MCR release check
         run: |
-          docker image inspect ${{ inputs.DOCKERHUB_REPO }}:${{ inputs.DOCKERHUB_TAG }}
-      -
-        name: MCR Test (Temp skipped)
-        continue-on-error: true
-        run: |
-          docker run --rm ${{ inputs.DOCKERHUB_REPO }}:${{ inputs.DOCKERHUB_TAG }} echo "TODO: ADD MCR TEST"
+          docker run -v ${{ github.workspace }}/test:/test --rm ${{ inputs.DOCKERHUB_REPO }}:${{ inputs.DOCKERHUB_TAG }} bash -c "chmod +x /test/mcr_version.sh && /test/mcr_version.sh ${{ inputs.MATLAB_NAME }}"
+
+#      -
+#        name: MCR Test (TODO)
+#        run: |
+#          docker run --rm ${{ inputs.DOCKERHUB_REPO }}:${{ inputs.DOCKERHUB_TAG }} echo "TODO: ADD MCR TEST"

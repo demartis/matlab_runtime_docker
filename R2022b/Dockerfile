@@ -15,7 +15,7 @@
 # See https://www.mathworks.com/products/compiler/matlab-runtime.html for more info.  
 #  
 # @author Riccardo De Martis
-# @creation 2023-May-11  
+# @creation 2023-Nov-14  
 # @link https://github.com/demartis/matlab_runtime_docker  
 #  
 
@@ -23,27 +23,30 @@ FROM debian:buster-slim
 MAINTAINER Riccardo De Martis <riccardo@demartis.it>  
 ENV DEBIAN_FRONTEND noninteractive  
 
-RUN apt-get -q update && \  
-    apt-get install -q -y --no-install-recommends \  
-      xorg \  
-      unzip \  
-      wget \  
-      curl && \  
-    apt-get clean && \  
+RUN apt-get -q update && \
+    apt-get install -q -y --no-install-recommends \
+      xorg \
+      unzip \
+      wget \
+      curl && \
+    apt-get clean && \
     rm -rf /var/lib/apt/lists/*  
 
 # Download the MCR from MathWorks site an install with -mode silent  
-RUN mkdir /mcr-install && \  
-    mkdir /opt/mcr && \  
-    cd /mcr-install && \  
-    wget --no-check-certificate -q https://ssd.mathworks.com/supportfiles/downloads/R2022b/Release/5/deployment_files/installer/complete/glnxa64/MATLAB_Runtime_R2022b_Update_5_glnxa64.zip && \  
-    unzip -q MATLAB_Runtime_R2022b_Update_5_glnxa64.zip && \  
-    rm -f MATLAB_Runtime_R2022b_Update_5_glnxa64.zip && \  
-    ./install -destinationFolder /opt/mcr -agreeToLicense yes -mode silent && \  
-    cd / && \  
+RUN mkdir /mcr-install && \
+    mkdir /opt/mcr && \
+    cd /mcr-install && \
+    wget --no-check-certificate -q https://ssd.mathworks.com/supportfiles/downloads/R2022b/Release/7/deployment_files/installer/complete/glnxa64/MATLAB_Runtime_R2022b_Update_7_glnxa64.zip && \
+    unzip -q MATLAB_Runtime_R2022b_Update_7_glnxa64.zip && \
+    rm -f MATLAB_Runtime_R2022b_Update_7_glnxa64.zip && \
+    ./install -destinationFolder /opt/mcr -agreeToLicense yes -mode silent && \
+    cd / && \
     rm -rf mcr-install  
 
 # Configure environment variables for MCR  
-ENV LD_LIBRARY_PATH /opt/mcr/v913/runtime/glnxa64:/opt/mcr/v913/bin/glnxa64:/opt/mcr/v913/sys/os/glnxa64:/opt/mcr/v913/extern/bin/glnxa64  
+ENV LD_LIBRARY_PATH /opt/mcr/R2022b/runtime/glnxa64:/opt/mcr/R2022b/bin/glnxa64:/opt/mcr/R2022b/sys/os/glnxa64:/opt/mcr/R2022b/extern/bin/glnxa64  
 
 ENV XAPPLRESDIR /etc/X11/app-defaults  
+
+# Configure a variable to dump VersionInfo.xml and test the correct installation through GitHub Actions
+ENV MCR_MASTER_PATH /opt/mcr/R2022b

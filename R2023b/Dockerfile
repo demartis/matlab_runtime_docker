@@ -1,5 +1,5 @@
 
-# MATLAB Compiler Runtime (MCR) v9.10 (R2021a)  
+# MATLAB Compiler Runtime (MCR) v23.2 (R2023b)  
 #  
 # This docker file will configure an environment into which the Matlab compiler
 # runtime will be installed and in which stand-alone matlab routines (such as
@@ -15,7 +15,7 @@
 # See https://www.mathworks.com/products/compiler/matlab-runtime.html for more info.  
 #  
 # @author Riccardo De Martis
-# @creation 2023-May-11  
+# @creation 2023-Nov-14  
 # @link https://github.com/demartis/matlab_runtime_docker  
 #  
 
@@ -36,17 +36,17 @@ RUN apt-get -q update && \
 RUN mkdir /mcr-install && \
     mkdir /opt/mcr && \
     cd /mcr-install && \
-    wget --no-check-certificate -q https://ssd.mathworks.com/supportfiles/downloads/R2021a/Release/8/deployment_files/installer/complete/glnxa64/MATLAB_Runtime_R2021a_Update_8_glnxa64.zip && \
-    unzip -q MATLAB_Runtime_R2021a_Update_8_glnxa64.zip && \
-    rm -f MATLAB_Runtime_R2021a_Update_8_glnxa64.zip && \
+    wget --no-check-certificate -q https://ssd.mathworks.com/supportfiles/downloads/R2023b/Release/3/deployment_files/installer/complete/glnxa64/MATLAB_Runtime_R2023b_Update_3_glnxa64.zip && \
+    unzip -q MATLAB_Runtime_R2023b_Update_3_glnxa64.zip && \
+    rm -f MATLAB_Runtime_R2023b_Update_3_glnxa64.zip && \
     ./install -destinationFolder /opt/mcr -agreeToLicense yes -mode silent && \
     cd / && \
     rm -rf mcr-install  
 
 # Configure environment variables for MCR  
-ENV LD_LIBRARY_PATH /opt/mcr/v910/runtime/glnxa64:/opt/mcr/v910/bin/glnxa64:/opt/mcr/v910/sys/os/glnxa64:/opt/mcr/v910/extern/bin/glnxa64  
+ENV LD_LIBRARY_PATH /opt/mcr/R2023b/runtime/glnxa64:/opt/mcr/R2023b/bin/glnxa64:/opt/mcr/R2023b/sys/os/glnxa64:/opt/mcr/R2023b/extern/bin/glnxa64  
 
 ENV XAPPLRESDIR /etc/X11/app-defaults  
 
 # Configure a variable to dump VersionInfo.xml and test the correct installation through GitHub Actions
-ENV MCR_MASTER_PATH /opt/mcr/v910
+ENV MCR_MASTER_PATH /opt/mcr/R2023b
