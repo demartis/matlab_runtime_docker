@@ -17,6 +17,9 @@ Docker image to run compiled MATLAB applications or components **without install
 
 ```
 Changelog
+v1.2.1
+- updated R2023b
+
 v1.2
 - support until current R2023b
 - updated R2023a R2022b R2022a R2021b
