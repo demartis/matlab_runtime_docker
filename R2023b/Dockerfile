@@ -15,7 +15,7 @@
 # See https://www.mathworks.com/products/compiler/matlab-runtime.html for more info.  
 #  
 # @author Riccardo De Martis
-# @creation 2023-Dec-26  
+# @creation 2024-Feb-19  
 # @link https://github.com/demartis/matlab_runtime_docker  
 #  
 
@@ -36,9 +36,9 @@ RUN apt-get -q update && \
 RUN mkdir /mcr-install && \
     mkdir /opt/mcr && \
     cd /mcr-install && \
-    wget --no-check-certificate -q https://ssd.mathworks.com/supportfiles/downloads/R2023b/Release/5/deployment_files/installer/complete/glnxa64/MATLAB_Runtime_R2023b_Update_5_glnxa64.zip && \
-    unzip -q MATLAB_Runtime_R2023b_Update_5_glnxa64.zip && \
-    rm -f MATLAB_Runtime_R2023b_Update_5_glnxa64.zip && \
+    wget --no-check-certificate -q https://ssd.mathworks.com/supportfiles/downloads/R2023b/Release/6/deployment_files/installer/complete/glnxa64/MATLAB_Runtime_R2023b_Update_6_glnxa64.zip && \
+    unzip -q MATLAB_Runtime_R2023b_Update_6_glnxa64.zip && \
+    rm -f MATLAB_Runtime_R2023b_Update_6_glnxa64.zip && \
     ./install -destinationFolder /opt/mcr -agreeToLicense yes -mode silent && \
     cd / && \
     rm -rf mcr-install  
